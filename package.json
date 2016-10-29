@@ -1,0 +1,24 @@
+{
+  "name": "annoncio",
+  "private": true,
+  "scripts": {
+    "start": "meteor run"
+  },
+  "dependencies": {
+    "faker": "^3.1.0",
+    "lodash": "^4.16.4",
+    "meteor-node-stubs": "~0.2.0",
+    "moment": "^2.15.2",
+    "nuka-carousel": "^2.0.3",
+    "react": "^15.3.2",
+    "react-addons-pure-render-mixin": "^15.3.2",
+    "react-dom": "^15.3.2",
+    "react-image-slider": "0.0.6",
+    "react-meteor-data": "^0.2.9",
+    "react-responsive-carousel": "^3.0.21",
+    "react-select": "^1.0.0-rc.2",
+    "react-slick": "^0.14.5",
+    "react-star-rating-component": "^1.2.2",
+    "slick-carousel": "^1.6.0"
+  }
+}
