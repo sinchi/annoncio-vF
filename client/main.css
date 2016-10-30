@@ -2,6 +2,7 @@ body{
   background-color: rgb(238,238,238);
   font-size: 12px;
   font-family: sans-serif;
+
 }
 
 .navbar-default {
@@ -20,17 +21,7 @@ body{
 .side_menu {
   margin-top: 80px;
 }
-/* search bar container */
-.search_bar{
-  padding: 15px;
-  color: black;
-}
 
-
-.search_bar label{
-    margin: 0 10px 0 10px;
-
-}
 
 .btn-suivre{
   margin-bottom: 10px;
@@ -38,14 +29,11 @@ body{
 
 
 .progress{
-  
+
   color:  rgb(39,180,189)
 }
 
 
-.rate2{
-  width: 100%;
-}
 
 .comment_text{
 white-space: nowrap;

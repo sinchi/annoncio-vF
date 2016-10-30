@@ -9,18 +9,13 @@ class AnnoncesList extends Component {
     }
 
     const Annonces = this.props.annonces.map((annonce => {
-      return (
-        <div key={ annonce._id }>
-          <Annonce  annonce = { annonce }/>;
-          <li role="separator" className="divider"></li>
-        </div>
-      )
+      return <Annonce key={ annonce._id } annonce = { annonce } onInscriptionClick={ this.props.onInscriptionClick }/>
     }));
 
     return(
-      <ul className="list-group" style={style}>
+      <div style={style}>
           { Annonces }
-      </ul>
+      </div>
     )
   }
 }

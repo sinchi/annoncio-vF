@@ -9,6 +9,21 @@ class AnnoncesHeader extends Component{
     this.state = { ups: 5, downs: 5 };
   }
 
+  onFollowClick(event){
+    const moi = "ayoub";
+    if(moi === "ayoub")
+      return "this.props.onInscriptionClick";
+
+    return console.log("suivre");
+  }
+
+  onUpsClick(event){
+    this.setState({ downs: this.state.ups + 1 });
+  }
+
+  onDownsClick(event){
+    this.setState({ downs: this.state.downs + 1 });
+  }
 
   /*onStarClick(nextValue, prevValue, name){
     if(nextValue > prevValue){
@@ -31,6 +46,8 @@ class AnnoncesHeader extends Component{
     const downsPercent = `${100 * (this.state.downs / (this.state.ups + this.state.downs))}%`;
     console.log("ups", this.state.ups);
     console.log("downs", this.state.downs);
+    moment.locale('fr');
+
     return(
       <div>
         <div className="media col-xs-6">
@@ -41,11 +58,11 @@ class AnnoncesHeader extends Component{
           </div>
           <div className="media-body">
             <h4 className="media-heading"><a href="#">{username}</a> <span style={{ color:"rgb(39,180,189)" }} className="glyphicon glyphicon-flash" aria-hidden="true"></span></h4>
-            {`${moment(createdAt).fromNow()}`} <span className="glyphicon glyphicon-globe" aria-hidden="true"></span>
+            {`${moment(createdAt).fromNow(true)}`} <span className="glyphicon glyphicon-globe" aria-hidden="true"></span>
           </div>
         </div>
         <div className="col-xs-6">
-          <div className="col-xs-offset-9"><button className="btn btn-success btn-suivre">Suivre</button></div>
+          <div className="col-xs-offset-9"><button onClick={  (!Meteor.userId) ? this.props.onInscriptionClick : this.onFollowClick.bind(this)   } className="btn btn-success btn-suivre">Suivre</button></div>
           <div className="progress">
             <div style={ {width: upsPercent} } className="progress-bar progress-bar-success progress-bar-striped">
               {this.state.ups} <span className="glyphicon glyphicon-thumbs-up"></span>
@@ -55,8 +72,8 @@ class AnnoncesHeader extends Component{
             </div>
           </div>
 
-            <button type="button" className="btn btn-success" onClick={ () => this.setState({ ups: this.state.ups + 1 }) }><span className="glyphicon glyphicon-thumbs-up"></span></button>
-            <button type="button" className="btn btn-danger pull-right" onClick={ () => this.setState({ downs: this.state.downs + 1 }) }><span className="glyphicon glyphicon-thumbs-down"></span></button>
+            <button type="button" className="btn btn-success" onClick={  (!Meteor.userId) ? this.props.onInscriptionClick : this.onUpsClick.bind(this)   }><span className="glyphicon glyphicon-thumbs-up"></span></button>
+            <button type="button" className="btn btn-danger pull-right" onClick={  (!Meteor.userId) ? this.props.onInscriptionClick : this.onDownsClick.bind(this)   }><span className="glyphicon glyphicon-thumbs-down"></span></button>
 
           {/*<StarRatingComponent
                     name={_id}

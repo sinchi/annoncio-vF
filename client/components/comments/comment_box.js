@@ -1,19 +1,26 @@
 import React , { Component } from 'react';
 
 class CommentBox extends Component {
+
+  onCommentClick(event){
+    console.log("Comment");
+  }
+
   render(){
-    const style =  { 
-      margin:"0px 0px 5px 0",
-      display:"block",
+    const style =  {
       background:"rgb(39,180,189)",
       color:"white"
     };
 
+
+
     return(
-      <div className="container">
-        <textarea cols="40"></textarea>
-        <button  className="btn btn-default " style={style}>Commenter</button>
-      </div>
+      <form>
+        <div className="form-group">
+          <textarea className="form-control"></textarea>
+        </div>
+        <button style={style} className="btn btn-default " onClick={  (!Meteor.userId) ? this.props.onInscriptionClick : this.onCommentClick.bind(this)   }>Commenter</button>
+      </form>
     )
   }
 }

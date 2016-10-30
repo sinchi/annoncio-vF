@@ -10,7 +10,7 @@ class ForgotPassword extends Component {
                     <div className="form-group">
                       <input type="text" id="email" className="form-control" placeholder="Email" />
                     </div>
-                    <button type="submit" className="btn btn-primary btn-block ">Envoyer</button>
+                    <button type="submit" style={{ background:"rgb(39,180,189)", color:"white" }} className="btn btn-block ">Envoyer</button>
                   </fieldset>
                 </form>
     )

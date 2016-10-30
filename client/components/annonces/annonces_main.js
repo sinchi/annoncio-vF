@@ -4,9 +4,7 @@ import { createContainer } from 'react-meteor-data';
 class AnnoncesMain extends Component {
   render(){
     return(
-      <div className="annonces_main">
-        <AnnoncesList annonces={ this.props.annonces }/>
-      </div>
+        <AnnoncesList annonces={ this.props.annonces } onInscriptionClick={ this.props.onInscriptionClick }/>
     )
   }
 }

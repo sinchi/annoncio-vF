@@ -10,13 +10,13 @@ class CommentsList extends Component {
     }
 
     const Comments = this.props.comments.map(comment => {
-      return <Comment key={ comment._id } comment={comment}/>
+      return <Comment key={ comment._id } comment={comment} />
     });
 
     return(
-      <ul className="list-group" style={style}>
+      <div className="list-group" style={style}>
           { Comments }
-      </ul>
+      </div>
     )
   }
 }

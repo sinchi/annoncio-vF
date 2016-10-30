@@ -10,6 +10,15 @@ class AnnoncesFooter extends Component{
     else
       document.querySelector(`#hidden-detail${_id}`).style.display = "block";
   }
+
+  onMessageClick(event){
+    console.log("Message Click");
+  }
+
+  onCallClick(event){
+    console.log("Appler click");
+  }
+
   render(){
     const { _id } = this.props.annonce;
     const hiddenDetailId = `hidden-detail${_id}`;
@@ -59,8 +68,8 @@ class AnnoncesFooter extends Component{
           </table>
         </div>
         <div style={{ marginTop:"20px" }}>
-          <button className="nav-btn  btn btn-primary">Message</button>
-          <button className="nav-btn btn btn-success">Appeler</button>
+          <button className="nav-btn  btn btn-primary" onClick={  (!Meteor.userId) ? this.props.onInscriptionClick : this.onMessageClick.bind(this)   }>Message</button>
+          <button className="nav-btn btn btn-success" onClick={  (!Meteor.userId) ? this.props.onInscriptionClick : this.onCallClick.bind(this)   }>Appeler</button>
           <button onClick={this.onDetailClick.bind(this)} className="nav-btn btn btn-default pull-right">Detail</button>
         </div>
       </div>
