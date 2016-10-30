@@ -20,7 +20,7 @@ class SearchFilter extends Component {
               <input type="text" className="form-control" placeholder="Rechercher" />
             </div>
             <div className="form-group">
-              <button className="btn btn-success form-control" type="button">Rechercher <span style={{ color:"rgb(242,106,110)" }} className="glyphicon glyphicon-search"></span></button>
+              <button style={{ background:"rgb(39,180,189)", color:"white" }} className="btn form-control" type="button">Rechercher <span style={{ color:"rgb(242,106,110)" }} className="glyphicon glyphicon-search pull-right"></span></button>
             </div>
           </form>
       </fieldset>

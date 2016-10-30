@@ -24,8 +24,9 @@ class CitiesCombo extends Component {
           name={className}
           value={this.state.city}
           options={Options}
-          onChange={(val) => this.setState({ city: val.value })}
+          onChange={(val) => (val && val.value) ? this.setState({ city: val.value }) : this.setState({ city: 'Aricberg' })}
           clearableValue={true}
+          placeholder={"Choisir la ville"}
       />
 
     );

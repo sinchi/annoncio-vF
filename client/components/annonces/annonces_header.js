@@ -40,15 +40,19 @@ class AnnoncesHeader extends Component{
             </a>
           </div>
           <div className="media-body">
-            <h4 className="media-heading"><a href="#">{username}</a> <span className="glyphicon glyphicon-upload" aria-hidden="true"></span></h4>
+            <h4 className="media-heading"><a href="#">{username}</a> <span style={{ color:"rgb(39,180,189)" }} className="glyphicon glyphicon-flash" aria-hidden="true"></span></h4>
             {`${moment(createdAt).fromNow()}`} <span className="glyphicon glyphicon-globe" aria-hidden="true"></span>
           </div>
         </div>
         <div className="col-xs-6">
           <div className="col-xs-offset-9"><button className="btn btn-success btn-suivre">Suivre</button></div>
           <div className="progress">
-            <div style={ {width: upsPercent} } className="progress-bar progress-bar-success progress-bar-striped"/>
-            <div style={ {width: downsPercent} } className="progress-bar progress-bar-danger progress-bar-striped" />
+            <div style={ {width: upsPercent} } className="progress-bar progress-bar-success progress-bar-striped">
+              {this.state.ups} <span className="glyphicon glyphicon-thumbs-up"></span>
+            </div>
+            <div style={ {width: downsPercent} } className="progress-bar progress-bar-danger progress-bar-striped">
+              {this.state.downs} <span className="glyphicon glyphicon-thumbs-down"></span>
+            </div>
           </div>
 
             <button type="button" className="btn btn-success" onClick={ () => this.setState({ ups: this.state.ups + 1 }) }><span className="glyphicon glyphicon-thumbs-up"></span></button>
