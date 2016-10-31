@@ -18,7 +18,7 @@ class AnnoncesHeader extends Component{
   }
 
   onUpsClick(event){
-    this.setState({ downs: this.state.ups + 1 });
+    this.setState({ ups: this.state.ups + 1 });
   }
 
   onDownsClick(event){
@@ -48,8 +48,22 @@ class AnnoncesHeader extends Component{
     console.log("downs", this.state.downs);
     moment.locale('fr');
 
-    return(
+    const likesButtons = (Meteor.userId()) ? (
       <div>
+      <button type="button" className="btn btn-success" onClick={  (!Meteor.userId()) ? this.props.onInscriptionClick : this.onUpsClick.bind(this)   }><span className="glyphicon glyphicon-thumbs-up"></span></button>
+      <button type="button" className="btn btn-danger pull-right" onClick={  (!Meteor.userId()) ? this.props.onInscriptionClick : this.onDownsClick.bind(this)   }><span className="glyphicon glyphicon-thumbs-down"></span></button>
+      </div>
+    ) : '';
+
+    const followButton = (Meteor.userId()) ? (
+      <div className="col-xs-offset-9">
+        <button onClick={  (!Meteor.userId()) ? this.props.onInscriptionClick : this.onFollowClick.bind(this)   } className="btn btn-success btn-suivre">Suivre</button>
+      </div>
+    ) : '';
+
+
+    return(
+      <div className="row">
         <div className="media col-xs-6">
           <div className="media-left">
             <a href="#">
@@ -62,7 +76,7 @@ class AnnoncesHeader extends Component{
           </div>
         </div>
         <div className="col-xs-6">
-          <div className="col-xs-offset-9"><button onClick={  (!Meteor.userId) ? this.props.onInscriptionClick : this.onFollowClick.bind(this)   } className="btn btn-success btn-suivre">Suivre</button></div>
+          { followButton }
           <div className="progress">
             <div style={ {width: upsPercent} } className="progress-bar progress-bar-success progress-bar-striped">
               {this.state.ups} <span className="glyphicon glyphicon-thumbs-up"></span>
@@ -72,8 +86,8 @@ class AnnoncesHeader extends Component{
             </div>
           </div>
 
-            <button type="button" className="btn btn-success" onClick={  (!Meteor.userId) ? this.props.onInscriptionClick : this.onUpsClick.bind(this)   }><span className="glyphicon glyphicon-thumbs-up"></span></button>
-            <button type="button" className="btn btn-danger pull-right" onClick={  (!Meteor.userId) ? this.props.onInscriptionClick : this.onDownsClick.bind(this)   }><span className="glyphicon glyphicon-thumbs-down"></span></button>
+          { likesButtons }
+
 
           {/*<StarRatingComponent
                     name={_id}

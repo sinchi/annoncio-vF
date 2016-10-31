@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import {ModalContainer, ModalDialog} from 'react-modal-dialog';
+import { browserHistory } from 'react-router';
+
 import ForgotPassword from './forgot_password';
+
 
 class LoginForm extends Component {
 
@@ -12,6 +15,7 @@ class LoginForm extends Component {
   handleClick(){
     this.setState({isShowingModal: true})
   }
+
   handleClose(event){
     if(event)
     event.preventDefault();
@@ -21,15 +25,15 @@ class LoginForm extends Component {
   render(){
     return (
       <div>
-          <form className="login_form">
+          <form className="login_form" onSubmit={ this.props.onLoginClick }>
               <fieldset>
                 <div className="form-group">
-                  <input type="text" id="email" className="form-control" placeholder="Email" />
+                  <input type="text" id="login_email" ref="login_email"  className="form-control" placeholder="Email" />
                 </div>
                 <div className="form-group">
-                  <input type="text" id="password" className="form-control" placeholder="Mot de passe" />
+                  <input type="password" id="login_password" ref="login_password" className="form-control" placeholder="Mot de passe" />
                 </div>
-                <button type="submit" className="btn btn-primary btn-block ">Connexion</button>
+                <button onClick={ this.props.onLoginClick } type="submit" className="btn btn-primary btn-block ">Connexion</button>
                 <a onClick={ this.handleClick.bind(this) } href="#">Mot de passe oublier !</a>
 
               </fieldset>

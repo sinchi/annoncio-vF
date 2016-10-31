@@ -1,11 +1,26 @@
 import React, { Component } from 'react';
-
+import { browserHistory } from 'react-router';
 
 import InlineForm from './inline_form';
 
 class Header extends Component {
 
+  onLogoutClick(event){
+    event.preventDefault();
+    console.log("LogOut ");
+    Meteor.logout(function(){
+        browserHistory.push('/');
+    });
+    
+  }
+
   render(){
+    const authentication = (Meteor.userId()) ? (
+      <ul className="nav navbar-nav">
+        <li><a href="#" onClick={ this.onLogoutClick.bind(this) }>  Deconnexion </a></li>
+      </ul>
+    ) : <InlineForm onInscriptionClick={this.props.onInscriptionClick} /> ;
+
     return(
       <nav className="nav navbar-default navbar-fixed-top">
         <div className="navbar-header">
@@ -23,9 +38,8 @@ class Header extends Component {
           <li className="active"><a href="#"><span className="glyphicon glyphicon-flag" aria-hidden="true"></span>  Publier une Annonce <span className="sr-only">(current)</span></a></li>
         </ul>
 
-
         <div className="nav navbar-nav navbar-right">
-          <InlineForm  onInscriptionClick={this.props.onInscriptionClick} />
+          {authentication}
         </div>
       </div>
     </nav>
