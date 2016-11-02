@@ -44,8 +44,7 @@ class AnnoncesHeader extends Component{
     const { image, createdAt, username, _id  } = this.props.annonce;
     const upsPercent = `${100 * (this.state.ups / (this.state.ups + this.state.downs))}%`;
     const downsPercent = `${100 * (this.state.downs / (this.state.ups + this.state.downs))}%`;
-    console.log("ups", this.state.ups);
-    console.log("downs", this.state.downs);
+  
     moment.locale('fr');
 
     const likesButtons = (Meteor.userId()) ? (

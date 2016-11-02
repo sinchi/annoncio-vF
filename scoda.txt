@@ -1,0 +1,1 @@
+var scoda = [{name:"Fabia"},{name:"Octavia"},{name:"Roomster"},{name:"Superb"},{name:"Yeti"}];

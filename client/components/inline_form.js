@@ -20,6 +20,8 @@ class InlineForm extends Component {
       Meteor.loginWithPassword(email, password, function(error){
         if(!error){
           browserHistory.push('/');
+        }else {
+          console.log("Error", error);
         }
       });
     }

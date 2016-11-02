@@ -7,7 +7,7 @@ class AnnoncesCarousel extends Component {
     const { title, images, _id  } = this.props.annonce;
     const { items, description } = images;
     const idCarousel = `#carousel-${_id}`;
-    console.log(idCarousel);
+    
 
     const Items = items.map(item => {
       const { img, alt, caption, active } = item;
@@ -26,7 +26,6 @@ class AnnoncesCarousel extends Component {
     const Indicators = items.map(item => {
       const { img, alt, caption, active } = item;
       i++;
-      console.log(i);
       return(
         <li key={alt} data-target={idCarousel} data-slide-to={i} className={active}></li>
       )

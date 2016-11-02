@@ -1,0 +1,1 @@
+var seat = [{name:"Altea"},{name:"Cordoba"},{name:"Exeo"},{name:"Ibiza"},{name:"Leon"},{name:"Toledo"}];

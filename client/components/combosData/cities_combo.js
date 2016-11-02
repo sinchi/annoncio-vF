@@ -9,7 +9,16 @@ class CitiesCombo extends Component {
 
   constructor(props){
     super(props);
-    this.state = { city:'Aricberg' };
+    this.state = { city:'', clearable:false };
+  }
+
+  onCityChange(val){
+    if (val && val.value){
+      this.setState({ city: val.value, clearable: true });
+      console.log("city", val.value);
+    }else {
+      this.setState({ city:'', clearable: false });
+    }
   }
 
   render(){
@@ -24,8 +33,8 @@ class CitiesCombo extends Component {
           name={className}
           value={this.state.city}
           options={Options}
-          onChange={(val) => (val && val.value) ? this.setState({ city: val.value }) : this.setState({ city: 'Aricberg' })}
-          clearableValue={true}
+          onChange={ this.onCityChange.bind(this) }
+          clearable={this.state.clearable}
           placeholder={"Choisir la ville"}
       />
 

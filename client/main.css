@@ -1,16 +1,14 @@
 body{
-  background-color: rgb(238,238,238);
+  background-color: "#e9ebee";
   font-size: 12px;
   font-family: sans-serif;
-
+  background-image: url("shop.jpg");
 }
 
 .navbar-default {
+  color: "white";
   background-color: rgb(39,180,189);
-}
 
-.navbar-brand{
-  color: red;
 }
 
 .nav-input, .nav-btn {

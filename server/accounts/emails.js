@@ -22,3 +22,15 @@ Accounts.onCreateUser(function (options, user) {
       return emailBody;
     }
   };
+
+  Accounts.emailTemplates.resetPassword = {
+    subject(){
+      return "[Annoncio] Redéfinir Votre mot de passe";
+    },
+
+    text (user, url) {
+      url = url.replace('#/', '')
+      return " Click sur ce lien pour redéfinir votre mot de passe Merci:\n\n"
+        + url;
+   }
+  }

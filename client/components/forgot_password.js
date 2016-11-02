@@ -8,9 +8,9 @@ class ForgotPassword extends Component {
               <form className="forgot_password">
                   <fieldset>
                     <div className="form-group">
-                      <input type="text" id="email" className="form-control" placeholder="Email" />
+                      <input type="text" id="email" ref="forgot_email" className="form-control" placeholder="Email" />
                     </div>
-                    <button type="submit" style={{ background:"rgb(39,180,189)", color:"white" }} className="btn btn-block ">Envoyer</button>
+                    <button onClick={ this.props.onSendClick } type="submit" style={{ background:"rgb(39,180,189)", color:"white" }} className="btn btn-block ">Envoyer</button>
                   </fieldset>
                 </form>
     )

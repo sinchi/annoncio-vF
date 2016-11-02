@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import CitiesCombo from './combosData/cities_combo';
+import CategoriesCombo from './combosData/categories_combo';
 
 class SearchFilter extends Component {
   render(){
@@ -12,9 +13,7 @@ class SearchFilter extends Component {
             </div>
             <div className="form-group category">
               <span className="glyphicon glyphicon-th-large"></span><label htmlFor="category" className="label-control">Categorie:</label>
-              <select className="form-control" id="category">
-                <option value="">Choisir la catégorie</option>
-              </select>
+              <CategoriesCombo params={{className:"form-control", id:"category", title:"Choisir la categorie"}}/>
             </div>
             <div className=" form-group">
               <input type="text" className="form-control" placeholder="Rechercher" />

@@ -1,0 +1,1 @@
+var geely = [{name:"GK-GL"},{name:"GK-GS"},{name:"GK-GT"},{name:"LC"},{name:"MK-GL"},{name:"MK-GS"},{name:"MK-GT"},{name:"Zotye"}];

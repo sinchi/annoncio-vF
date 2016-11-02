@@ -15,20 +15,6 @@ class App extends Component {
     this.state = { isShowingModal: false };
   }
 
-  componentDidMount(){
-      const { token } = this.props.params;
-      if(token){
-        Accounts.verifyEmail(token, (error) => {
-          if(error){
-            console.log("Error verifying email", error);
-          }else{
-            console.log("Email verified with success");
-          }
-        });
-      }
-
-  }
-
   handleClick(){
     this.setState({isShowingModal: true})
   }
@@ -47,23 +33,55 @@ class App extends Component {
     event.preventDefault();
     const email = this.refs.embedded_login_form.refs.login_email.value;
     const password = this.refs.embedded_login_form.refs.login_password.value;
-    console.log(email + " " + password);
+
     const that = this;
     if(email && password){
       Meteor.loginWithPassword(email, password, function(error){
         if(!error){
           that.setState({ isShowingModal: false });
           browserHistory.push('/');
+        }else {
+          console.log("Error", error);
         }
       });
     }
+  }
+
+  onSignupClick(event){
+    event.preventDefault();
+    const that = this;
+    const email = this.refs.embedded_signup_form.refs.signup_email.value;
+    const password = this.refs.embedded_signup_form.refs.signup_password.value;
+    const repassword = this.refs.embedded_signup_form.refs.signup_repassword.value;
+    if(email && password && (password === repassword)){
+        const profile = {
+          status: true
+        }
+        const options = {
+          name: email.split('@')[0],
+          email,
+          password,
+          profile
+        }
+
+        Accounts.createUser(options, function(error){
+            if(!error){
+              console.log("User created with success");
+              that.setState({ isShowingModal: false });
+              browserHistory.push('/');
+            }else{
+              console.log("Erreur ", error);
+            }
+        })
+
+    }
+
   }
 
   render(){
 
     return(
       <div className="container">
-
         <Header onInscriptionClick={ this.onInscriptionClick.bind(this) }/>
         <div className="row" style={{ marginTop:"90px" }}>
           <div className="col-xs-5 col-sm-3 col-md-2" style={{ position:"fixed" }}>
@@ -81,7 +99,7 @@ class App extends Component {
               <div className="row">
                 <div className="col-xs-6">
                     <h1>Inscription</h1>
-                    <SignupForm  onClose={ this.handleClose.bind(this) }/>
+                    <SignupForm ref="embedded_signup_form" onInscriptionClick={ this.onSignupClick.bind(this) }  onClose={ this.handleClose.bind(this) }/>
                 </div>
 
                 <div className="col-xs-6">

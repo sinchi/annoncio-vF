@@ -1,0 +1,1035 @@
+Casablanca
+Casablanca
+Grand Casablanca
+Fes
+Fes
+Fès-Boulemane
+Salé
+Salé
+Rabat-Salé-Zemmour-Zaer
+Marrakesh
+Marrakesh
+Marrakesh-Tensift-El Haouz
+Tangier
+Tanger Assila
+Tangier-Tetouan
+Rabat
+Rabat
+Rabat-Salé-Zemmour-Zaer
+Meknes
+Meknès
+Meknès-Tafilalet
+Oujda
+Oujda Angad
+Oriental
+Kenitra
+Kenitra
+Gharb-Chrarda-Béni Hssen
+Agadir
+Agadir Ida ou tanane
+Souss-Massa-Drâa
+Tétouan
+Tetuan
+Tangier-Tetouan
+Safi
+Safi
+Doukkala-Abda
+Temara
+Skhirat temara
+Rabat-Salé-Zemmour-Zaer
+Inzegan
+Inzegan Aït melloul
+Souss-Massa-Drâa
+Mohammedia
+Mohammedia
+Grand Casablanca
+Laâyoune
+Layoune
+Laâyoune-Boujdour-Sakia El Hamra
+Khouribga
+Khouribga
+Chaouia-Ouardigha
+Beni Mellal
+Beni Mellal
+Tadla-Azilal
+Jdida
+Jdida
+Doukkala-Abda
+Taza
+Taza
+Taza-Al Hoceima-Taounate
+Aït Melloul
+Inzegan Aït melloul
+Souss-Massa-Drâa
+Nador
+Nador
+Oriental
+Settat
+Settat
+Chaouia-Ouardigha
+Ksar El Kbir
+Larache
+Tangier-Tetouan
+Larache
+Larache
+Tangier-Tetouan
+Khemisset
+Khemisset
+Rabat-Salé-Zemmour-Zaer
+Guelmim
+Guelmim
+Guelmim-Es Semara
+Berrechid
+Settat
+Chaouia-Ouardigha
+Wad Zam
+Khouribga
+Chaouia-Ouardigha
+Fkih Ben Saleh
+Beni Mellal
+Tadla-Azilal
+Taourirt
+Taourirt
+Oriental
+Berkane
+Berkane
+Oriental
+Sidi Slimane
+Kenitra
+Gharb-Chrarda-Béni Hssen
+Errachidia
+Errachidia
+Meknès-Tafilalet
+Sidi Kacem
+Sidi Kacem
+Gharb-Chrarda-Béni Hssen
+Khenifra
+Khenifra
+Meknès-Tafilalet
+Tifelt
+Khemisset
+Rabat-Salé-Zemmour-Zaer
+Essaouira
+Essaouira
+Marrakesh-Tensift-El Haouz
+Taroudant
+Taroudant
+Souss-Massa-Drâa
+El Kelaa des Sraghna
+Kelaat Sraghna
+Marrakesh-Tensift-El Haouz
+Oulad Teima
+Taroudant
+Souss-Massa-Drâa
+Youssoufia
+Safi
+Doukkala-Abda
+Sefrou
+Sefrou
+Fès-Boulemane
+Ben Guerir
+Kelaat Sraghna
+Marrakesh-Tensift-El Haouz
+Tan-Tan
+Tan-Tan
+Guelmim-Es Semara
+Ouazzane
+Sidi Kacem
+Gharb-Chrarda-Béni Hssen
+Guercif
+Taza
+Taza-Al Hoceima-Taounate
+Dakhla
+ouad eddahab
+Oued Ed-Dahab-Lagouira
+Hoceima
+Al Hoceima
+Taza-Al Hoceima-Taounate
+Fnideq
+Tetuan
+Tangier-Tetouan
+Ouarzazate
+Ouarzazate
+Souss-Massa-Drâa
+Tiznit
+Tiznit
+Souss-Massa-Drâa
+Suq Sebt Oulad Nama
+Beni Mellal
+Tadla-Azilal
+Azrou
+Ifrane
+Meknès-Tafilalet
+Lahraouyine
+Mediouna
+Grand Casablanca
+Ben Slimane
+Bensliman
+Chaouia-Ouardigha
+Midelt
+Khenifra
+Meknès-Tafilalet
+Jerada
+Jrada
+Oriental
+Skhirat
+Skhirat temara
+Rabat-Salé-Zemmour-Zaer
+Souk Larbaa
+Kenitra
+Gharb-Chrarda-Béni Hssen
+Aïn Harrouda
+Mohammedia
+Grand Casablanca
+Boujad
+Khouribga
+Chaouia-Ouardigha
+Kasbat Tadla
+Beni Mellal
+Tadla-Azilal
+Sidi Bennour
+Jdida
+Doukkala-Abda
+Martil
+Tetuan
+Tangier-Tetouan
+Lqliâa
+Inzegan Aït melloul
+Souss-Massa-Drâa
+Cape Bojador
+Boujdor
+Laâyoune-Boujdour-Sakia El Hamra
+Azemmour
+Jdida
+Doukkala-Abda
+M'diq
+Tetuan
+Tangier-Tetouan
+Tinghir
+Ouarzazate
+Souss-Massa-Drâa
+Al Aaroui
+Nador
+Oriental
+Chefchaouen
+Chefchawn
+Tangier-Tetouan
+M'Rirt
+Khenifra
+Meknès-Tafilalet
+Zagora
+Zagora
+Souss-Massa-Drâa
+El Aioun Sidi Mellouk
+Taourirt
+Oriental
+Lamkansa
+Nouaceur
+Grand Casablanca
+Smara
+Esmara
+Guelmim-Es Semara
+Taounate
+Taounate
+Taza-Al Hoceima-Taounate
+Bin An
+Nador
+Oriental
+Sidi Yahya El Gharb
+Kenitra
+Gharb-Chrarda-Béni Hssen
+Zaio
+Nador
+Oriental
+Amalou Ighriben
+Khenifra
+Meknès-Tafilalet
+Asilah
+Tanger Assila
+Tangier-Tetouan
+Azilal
+Azilal
+Tadla-Azilal
+Mechra Bel Ksiri
+Sidi Kacem
+Gharb-Chrarda-Béni Hssen
+El Hajeb
+El hajeb
+Meknès-Tafilalet
+Bouznika
+Bensliman
+Chaouia-Ouardigha
+Imzouren
+Al Hoceima
+Taza-Al Hoceima-Taounate
+Tahla
+Taza
+Taza-Al Hoceima-Taounate
+BouiZazarene Ihaddadene
+Nador
+Oriental
+Aïn El Aouda
+Skhirat temara
+Rabat-Salé-Zemmour-Zaer
+Bouarfa
+Figuig
+Oriental
+Arfoud
+Errachidia
+Meknès-Tafilalet
+Demnate
+Azilal
+Tadla-Azilal
+Sidi Slimane Echcharraa
+Berkane
+Oriental
+Zawiyat cheikh
+Beni Mellal
+Tadla-Azilal
+Ain Taoujdate
+El hajeb
+Meknès-Tafilalet
+Echemmaia
+Safi
+Doukkala-Abda
+Aourir
+Agadir Ida ou tanane
+Souss-Massa-Drâa
+Sabaa Aiyoun
+El hajeb
+Meknès-Tafilalet
+Oulad Ayad
+Beni Mellal
+Tadla-Azilal
+Ben Ahmed
+Settat
+Chaouia-Ouardigha
+Tabounte
+Ouarzazate
+Souss-Massa-Drâa
+Jorf El Melha
+Sidi Kacem
+Gharb-Chrarda-Béni Hssen
+Missour
+Boulman
+Fès-Boulemane
+Laattaouia
+Kelaat Sraghna
+Marrakesh-Tensift-El Haouz
+Er-Rich
+Errachidia
+Meknès-Tafilalet
+Segangan
+Nador
+Oriental
+Rissani
+Errachidia
+Meknès-Tafilalet
+Sidi Taibi
+Kenitra
+Gharb-Chrarda-Béni Hssen
+Sidi Ifni
+Tiznit
+Souss-Massa-Drâa
+Ait Ourir
+Al hawz
+Marrakesh-Tensift-El Haouz
+Ahfir
+Berkane
+Oriental
+El Ksiba
+Beni Mellal
+Tadla-Azilal
+El Gara
+Settat
+Chaouia-Ouardigha
+Drarga
+Agadir Ida ou tanane
+Souss-Massa-Drâa
+Imintanoute
+Chichaoua
+Marrakesh-Tensift-El Haouz
+Goulmima
+Errachidia
+Meknès-Tafilalet
+Karia Ba Mohamed
+Taounate
+Taza-Al Hoceima-Taounate
+Mehdya
+Kenitra
+Gharb-Chrarda-Béni Hssen
+El Borouj
+Settat
+Chaouia-Ouardigha
+Bouhdila
+Berkane
+Oriental
+Chichaoua
+Chichaoua
+Marrakesh-Tensift-El Haouz
+Bni Bouayach
+Al Hoceima
+Taza-Al Hoceima-Taounate
+Oulad Berhil
+Taroudant
+Souss-Massa-Drâa
+Jmaat Shaim
+Safi
+Doukkala-Abda
+Bir Jdid
+Jdida
+Doukkala-Abda
+Tata
+Tata
+Guelmim-Es Semara
+Boujniba
+Khouribga
+Chaouia-Ouardigha
+Temsia
+Inzegan Aït melloul
+Souss-Massa-Drâa
+Mediouna
+Mediouna
+Grand Casablanca
+Kelat Megnouna
+Ouarzazate
+Souss-Massa-Drâa
+Sebt Gzoula
+Safi
+Doukkala-Abda
+Outat El Haj
+Boulman
+Fès-Boulemane
+Imouzzer Kandar
+Sefrou
+Fès-Boulemane
+Ain Bni Mathar
+Jrada
+Oriental
+Bouskoura
+Nouaceur
+Grand Casablanca
+Agourai
+El Hajeb
+Meknès-Tafilalet
+Midar
+Nador
+Oriental
+Lalla Mimouna
+Kenitra
+Gharb-Chrarda-Béni Hssen
+Ribat El Kheir
+Sefrou
+Fès-Boulemane
+Moulay Driss Zerhoun
+Meknès
+Meknès-Tafilalet
+Figuig
+Figuig
+Oriental
+Boumia
+Khenifra
+Meknès-Tafilalet
+Tamallalt
+Kelaat Sraghna
+Marrakesh-Tensift-El Haouz
+Nouaceur
+Nouaceur
+Grand Casablanca
+Rommani
+Khemisset
+Rabat-Salé-Zemmour-Zaer
+Jorf
+Errachidia
+Meknès-Tafilalet
+Ifran
+Ifrane
+Meknès-Tafilalet
+Bouizakarn
+Guelmim
+Guelmim-Es Semara
+Oulad Mbarek
+Beni Mellal
+Tadla-Azilal
+Afourar
+Azilal
+Tadla-Azilal
+Zmamra
+Jdida
+Doukkala-Abda
+Aït Ishaq
+Khenifra
+Meknès-Tafilalet
+Tit Mellil
+Mediouna
+Grand Casablanca
+Assa
+Assa zag
+Guelmim-Es Semara
+Bhalil
+Sefrou
+Fès-Boulemane
+Targuist
+Al Hoceima
+Taza-Al Hoceima-Taounate
+Beni Yakhlef
+Mohammedia
+Grand Casablanca
+El Menzel
+Sefrou
+Fès-Boulemane
+Aguelmous
+Khenifra
+Meknès-Tafilalet
+Sid L'Mokhtar
+Chichaoua
+Marrakesh-Tensift-El Haouz
+Boumalne Dades
+Ouarzazate
+Souss-Massa-Drâa
+Farkhana
+Nador
+Oriental
+Oulad Abbou
+Settat
+Chaouia-Ouardigha
+Amizmiz
+Al Haouz
+Marrakesh-Tensift-El Haouz
+Boulanouare
+Khouribga
+Chaouia-Ouardigha
+Ben Taieb
+Nador
+Oriental
+Ouled Frej
+Jdida
+Doukkala-Abda
+Driouch
+Nador
+Oriental
+Deroua
+Settat
+Chaouia-Ouardigha
+Hattane
+Khouribga
+Chaouia-Ouardigha
+El Marsa
+Layoune
+Laâyoune-Boujdour-Sakia El Hamra
+Tamanar
+Essaouira
+Marrakesh-Tensift-El Haouz
+Ait Iaaza
+Taroudant
+Souss-Massa-Drâa
+Sidi Allal El Bahraoui
+Khmisset
+Rabat-Salé-Zemmour-Zaer
+Dar Ould Zidouh
+Beni Mellal
+Tadla-Azilal
+Sid Zouine
+Marrakesh
+Marrakesh-Tensift-El Haouz
+Boudnib
+Errachidia
+Meknès-Tafilalet
+Foum Zguid
+Tata
+Guelmim-Es Semara
+Tissa
+Taounate
+Taza-Al Hoceima-Taounate
+Jaadar
+Nador
+Oriental
+Oulmes
+Khmisset
+Rabat-Salé-Zemmour-Zaer
+Bouknadel
+Sale
+Rabat-Salé-Zemmour-Zaer
+Harhoura
+Skhirat temara
+Rabat-Salé-Zemmour-Zaer
+El Guerdan
+Taroudant
+Souss-Massa-Drâa
+Selouane
+Nador
+Oriental
+Maaziz
+Khmisset
+Rabat-Salé-Zemmour-Zaer
+Oulad M'Rah
+Settat
+Chaouia-Ouardigha
+Loudaya
+Marrakesh
+Marrakesh-Tensift-El Haouz
+Massa
+Chtouka Aït Baha
+Souss-Massa-Drâa
+Aklim
+Berkane
+Oriental
+Ouaouizert
+Azilal
+Tadla-Azilal
+Bni Drar
+Oujda Angad
+Oriental
+El Kbab
+Khenifra
+Meknès-Tafilalet
+Oued Amlil
+Taza
+Taza-Al Hoceima-Taounate
+Sidi Rahel Chatai
+Settat
+Chaouia-Ouardigha
+Guigou
+Boulman
+Fès-Boulemane
+Agdz
+Zagora
+Souss-Massa-Drâa
+Khnichet
+Sidi Kacem
+Gharb-Chrarda-Béni Hssen
+Karia
+Jdida
+Doukkala-Abda
+Sidi Ahmed
+Safi
+Doukkala-Abda
+Zag
+Assa zag
+Guelmim-Es Semara
+Oulad Yaich
+Beni Mellal
+Tadla-Azilal
+Tinjdad
+Errachidia
+Meknès-Tafilalet
+Ouad Laou
+Tetuan
+Tangier-Tetouan
+Tighassaline
+Khenifra
+Meknès-Tafilalet
+Tounfit
+Khenifra
+Meknès-Tafilalet
+Bni Tadjite
+Figuig
+Oriental
+Bouanane
+Figuig
+Oriental
+Oulad Hriz Sahel
+Settat
+Chaouia-Ouardigha
+Talsint
+Figuig
+Oriental
+Taghjijt
+Guelmim
+Guelmim-Es Semara
+Boulemane
+Boulman
+Fès-Boulemane
+Zirara
+Sidi Kacem
+Gharb-Chrarda-Béni Hssen
+Taouima
+Nador
+Oriental
+Tahannaout
+Al Haouz
+Marrakesh-Tensift-El Haouz
+Bradia
+Beni Mellal
+Tadla-Azilal
+Moulay Abdallah
+Jdida
+Doukkala-Abda
+Sidi Rahal
+Kelaat Sraghna
+Marrakesh-Tensift-El Haouz
+Tameslouht
+Al Haouz
+Marrakesh-Tensift-El Haouz
+Aghbala
+Beni Mellal
+Tadla-Azilal
+El Ouatia
+Tan-Tan
+Guelmim-Es Semara
+Tendrara
+Figuig
+Oriental
+Taznakht
+Ouarzazate
+Souss-Massa-Drâa
+Fam El Hisn
+Tata
+Guelmim-Es Semara
+Akka
+Tata
+Guelmim-Es Semara
+Dar Gueddari
+Sidi Kacem
+Gharb-Chrarda-Béni Hssen
+Itzer
+Khenifra
+Meknès-Tafilalet
+Taliouine
+Taroudant
+Souss-Massa-Drâa
+Oualidia
+Jdida
+Doukkala-Abda
+Aoulouz
+Taroudant
+Souss-Massa-Drâa
+Moulay Bousselham
+Kenitra
+Gharb-Chrarda-Béni Hssen
+Tarfaya
+Layoune
+Laâyoune-Boujdour-Sakia El Hamra
+Ghafsai
+Taounate
+Taza-Al Hoceima-Taounate
+Foum Jamaa
+Azilal
+Tadla-Azilal
+Ain Leuh
+Ifran
+Meknès-Tafilalet
+Moulay Bouazza
+Khenifra
+Meknès-Tafilalet
+Kariat Arkmane
+Nador
+Oriental
+Kehf Nsour
+Khenifra
+Meknès-Tafilalet
+Sidi Bou Othmane
+Kelaat Sraghna
+Marrakesh-Tensift-El Haouz
+Oulad Tayeb
+Fes
+Fès-Boulemane
+Had Kourt
+Sidi Kacem
+Gharb-Chrarda-Béni Hssen
+Bab Berrad
+Chefchawn
+Tangier-Tetouan
+Loulad
+Settat
+Chaouia-Ouardigha
+Zaida
+Khenifra
+Meknès-Tafilalet
+Tafrawt
+Tiznit
+Souss-Massa-Drâa
+Khemis Sahel
+Larache
+Tangier-Tetouan
+Aït Baha
+Chtouka Aït Baha
+Souss-Massa-Drâa
+Biougra
+Chtouka Aït Baha
+Souss-Massa-Drâa
+Dar Bni Karrich
+Tetuan
+Tangier-Tetouan
+El Hanchane
+Essaouira
+Marrakesh-Tensift-El Haouz
+Sidi Jaber
+Beni Mellal
+Tadla-Azilal
+Irherm
+Taroudant
+Souss-Massa-Drâa
+Debdou
+Taourirt
+Oriental
+Ras Kebdana
+Nador
+Oriental
+Laaounate
+Jdida
+Doukkala-Abda
+Hadj Kaddour
+Meknès
+Meknès-Tafilalet
+Skhour Rhamna
+Kelaat Sraghna
+Marrakesh-Tensift-El Haouz
+Bzou
+Azilal
+Tadla-Azilal
+Ain Cheggag
+Sefrou
+Fès-Boulemane
+Bouderbala
+El Hajeb
+Meknès-Tafilalet
+Sidi Smaïl
+Jdida
+Doukkala-Abda
+Oulad Zbair
+Taza
+Taza-Al Hoceima-Taounate
+Bni Chiker
+Nador
+Oriental
+Lakhsas
+Tiznit
+Souss-Massa-Drâa
+Talmest
+Essaouira
+Marrakesh-Tensift-El Haouz
+Aknoul
+Taza
+Taza-Al Hoceima-Taounate
+Tiztoutine
+Nador
+Oriental
+Bab Taza
+Chefchawn
+Tangier-Tetouan
+Imouzzer Marmoucha
+Boulman
+Fès-Boulemane
+Gourrama
+Errachidia
+Meknès-Tafilalet
+Ajdir
+Al Hoceima
+Taza-Al Hoceima-Taounate
+Mhaya
+Meknès
+Meknès-Tafilalet
+Oulad Ghadbane
+Jdida
+Doukkala-Abda
+Zrarda
+Taza
+Taza-Al Hoceima-Taounate
+Zoumi
+Chefchawn
+Tangier-Tetouan
+Ain Karma
+Meknès
+Meknès-Tafilalet
+Thar Essouk
+Taounate
+Taza-Al Hoceima-Taounate
+Lagouira
+Aousserd
+Oued Ed-Dahab-Lagouira
+Ras El Ain
+Settat
+Chaouia-Ouardigha
+Sidi Ali Ben Hamdouche
+Jdida
+Doukkala-Abda
+Sebt Jahjouh
+El Hajeb
+Meknès-Tafilalet
+Tiddas
+Khmisset
+Rabat-Salé-Zemmour-Zaer
+Zaouiat Bougrin
+Sefrou
+Fès-Boulemane
+Tafersit
+Nador
+Oriental
+Touissit
+Jrada
+Oriental
+Saïdia
+Berkane
+Oriental
+Lalla Takerkoust
+Al Haouz
+Marrakesh-Tensift-El Haouz
+Skhinate
+Fes
+Fès-Boulemane
+Moulay Brahim
+Al Haouz
+Marrakesh-Tensift-El Haouz
+Soualem
+Settat
+Chaouia-Ouardigha
+Gueznaia
+Tanger-Assilah
+Tangier-Tetouan
+Moulay Yacoub
+Moulay Yaccoub
+Fès-Boulemane
+Sidi Allal Tazi
+Kenitra
+Gharb-Chrarda-Béni Hssen
+Laakarta
+Safi
+Doukkala-Abda
+Alnif
+Errachidia
+Meknès-Tafilalet
+Dar El Kebdani
+Nador
+Oriental
+Jebha
+Chefchawn
+Tangier-Tetouan
+Ain Erreggada
+Berkane
+Oriental
+Sidi Addi
+Ifran
+Meknès-Tafilalet
+Skoura
+Ouarzazate
+Souss-Massa-Drâa
+Smimou
+Essaouira
+Marrakesh-Tensift-El Haouz
+Ain Jemaa
+Meknès
+Meknès-Tafilalet
+Timahdite
+Ifran
+Meknès-Tafilalet
+Ait Daoud
+Essaouira
+Marrakesh-Tensift-El Haouz
+Souk El Had
+Ifran
+Meknès-Tafilalet
+Had Bouhssoussen
+Khenifra
+Meknès-Tafilalet
+Oulad Said
+Settat
+Chaouia-Ouardigha
+Arbaoua
+Kenitra
+Gharb-Chrarda-Béni Hssen
+Ain Dorij
+Sidi Kacem
+Gharb-Chrarda-Béni Hssen
+Madagh
+Berkane
+Oriental
+Tighza
+Khenifra
+Meknès-Tafilalet
+Matmata
+Taza
+Taza-Al Hoceima-Taounate
+Kerouna
+Nador
+Oriental
+Kassita
+Nador
+Oriental
+Bni Hadifa
+Al Hoceima
+Taza-Al Hoceima-Taounate
+Oued El Heimar
+Jrada
+Oriental
+Kerrouchen
+Khenifra
+Meknès-Tafilalet
+Tainaste
+Taza
+Taza-Al Hoceima-Taounate
+Guisser
+Settat
+Chaouia-Ouardigha
+Sidi Boubker
+Jrada
+Oriental
+Tamassint
+Al Hoceima
+Taza-Al Hoceima-Taounate
+Assahrij
+Kelaat Sraghna
+Marrakesh-Tensift-El Haouz
+Aghbalou Nssardane
+Khenifra
+Meknès-Tafilalet
+Tizi Ouasli
+Taza
+Taza-Al Hoceima-Taounate
+Moqrisset
+Chefchawn
+Tangier-Tetouan
+Sebt Lamaarif
+Jdida
+Doukkala-Abda
+Issaguen
+Al Hoceima
+Taza-Al Hoceima-Taounate
+Bouguedra
+Safi
+Doukkala-Abda
+Brikcha
+Chefchawn
+Tangier-Tetouan
+Ighoud
+Safi
+Doukkala-Abda
+Ajdir, Taza
+Taounate
+Taza-Al Hoceima-Taounate
+Oulad Amrane
+Jdida
+Doukkala-Abda
+Kettara
+Marrakesh
+Marrakesh-Tensift-El Haouz
+Aoufous
+Errachidia
+Meknès-Tafilalet
+Tafetachte
+Essaouira
+Marrakesh-Tensift-El Haouz
+Naïma
+Oujda Angad
+Oriental
+Tnin Sidi Lyamani
+Tanger-Assilah
+Tangier-Tetouan
+Karia
+Tetuan
+Tangier-Tetouan
+N'Zalat Bni Amar
+Meknès
+Meknès-Tafilalet
+Ahrara
+Safi
+Doukkala-Abda
+Sidi Abdallah Ghiat
+Al Haouz
+Marrakesh-Tensift-El Haouz
+Sidi Bouzid
+Jdida
+Doukkala-Abda
+Ounagha
+Essaouira
+Marrakesh-Tensift-El Haouz
