@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import AnnoncesList from './annonces_list';
+import AnnoncesList from '../annonces/annonces_list';
 import { createContainer } from 'react-meteor-data';
 import {ModalContainer, ModalDialog} from 'react-modal-dialog';
 import { browserHistory } from 'react-router';
 import SignupForm from '../authentication/signup_form';
 import LoginForm from '../authentication/login_form';
 import SideMenu from '../search/side_menu';
-class AnnoncesMain extends Component {
+class AnnoncesPage extends Component {
 
   constructor(props){
     super(props);
@@ -50,7 +50,7 @@ class AnnoncesMain extends Component {
   render(){
     return(
 
-        <div className="row" style={{ marginTop:"90px" }}>
+        <div className="container" style={{ marginTop:"90px" }}>
           <div className="col-xs-5 col-sm-3 col-md-2" style={{ position:"fixed" }}>
             <SideMenu onCategoryTest={this.onCategoryTest}/>
           </div>
@@ -186,4 +186,4 @@ export default createContainer((props) => {
   return {
     annonces: annonces
   }
-}, AnnoncesMain);
+}, AnnoncesPage);
