@@ -1,12 +1,10 @@
 import React, {Component} from 'react';
 import {ModalContainer, ModalDialog} from 'react-modal-dialog';
 import { browserHistory } from 'react-router';
-import Header from './components/header';
-import SideMenu from './components/side_menu';
-import SearchBar from './components/search_bar';
-import AnnoncesMain from './components/annonces/annonces_main';
-import SignupForm from './components/signup_form';
-import LoginForm from './components/login_form';
+import Header from './components/header/header';
+
+import SignupForm from './components/authentication/signup_form';
+import LoginForm from './components/authentication/login_form';
 
 class App extends Component {
 
@@ -83,14 +81,7 @@ class App extends Component {
     return(
       <div className="container">
         <Header onInscriptionClick={ this.onInscriptionClick.bind(this) }/>
-        <div className="row" style={{ marginTop:"90px" }}>
-          <div className="col-xs-5 col-sm-3 col-md-2" style={{ position:"fixed" }}>
-            <SideMenu />
-          </div>
-          <div className="col-xs-12 col-xs-offset-5 col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3">
-            { this.props.children }
-          </div>
-        </div>
+        { this.props.children }
         {
           this.state.isShowingModal &&
           <ModalContainer onClose={this.handleClose.bind(this)}>

@@ -52,7 +52,6 @@ class LoginForm extends Component {
                 </div>
                 <button onClick={ this.props.onLoginClick } type="submit" className="btn btn-primary btn-block ">Connexion</button>
                 <a onClick={ this.handleClick.bind(this) } href="#">Mot de passe oublier !</a>
-
               </fieldset>
             </form>
             {

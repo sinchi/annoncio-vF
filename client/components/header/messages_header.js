@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import FontAwesome from 'react-fontawesome';
 
 class MessagesHeader extends Component {
   render(){
     return(
       <li className="btn-group">
           <a className="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <span className="glyphicon glyphicon-comment"></span> Messages <label className="badge">2</label> <span className="caret"></span>
+          <FontAwesome name="envelope" size="2x" /> <sup> <label className="badge">10</label></sup>
           </a>
           <ul className="dropdown-menu">
             <li>

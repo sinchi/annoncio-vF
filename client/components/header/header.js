@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { browserHistory } from 'react-router';
+import { browserHistory, Link } from 'react-router';
 import { createContainer } from 'react-meteor-data';
 
-import InlineForm from './inline_form';
+import InlineForm from '../authentication/inline_form';
 import MessagesHeader from './messages_header';
 import NotificationsHeader from './notifications_header';
+import FontAwesome from 'react-fontawesome';
 
 class Header extends Component {
 
@@ -25,14 +26,15 @@ class Header extends Component {
         <MessagesHeader onLogoutClick={ this.onLogoutClick.bind(this) }/>
         <NotificationsHeader />
         <li className="btn-group">
-            <a className="btn  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <img className="media" width="20" height="20" alt="" src="https://z-1-scontent-mad1-1.xx.fbcdn.net/v/t1.0-1/p160x160/14291890_10154930613105663_1850540376112361297_n.jpg?oh=baf50636e2236a30a6df5e07772ba6f3&oe=58A1038E" /> { email } <span className="caret"></span>
+
+            <a className="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <img className="media" width="20" height="20" alt="" src="https://z-1-scontent-mad1-1.xx.fbcdn.net/v/t1.0-1/p160x160/14291890_10154930613105663_1850540376112361297_n.jpg?oh=baf50636e2236a30a6df5e07772ba6f3&oe=58A1038E" /> { email } <span className="caret"></span>
             </a>
             <ul className="dropdown-menu">
               <li>
-                  <a href="#" onClick={ this.onLogoutClick.bind(this) }>
+                  <Link to={`/profile/${Meteor.userId()}`}>
                     <span className="glyphicon glyphicon-cog"></span> Mon Compte
-                  </a>
+                  </Link>
               </li>
               <li>
                   <a href="#" onClick={ this.onLogoutClick.bind(this) }>
@@ -41,8 +43,9 @@ class Header extends Component {
               </li>
             </ul>
         </li>
+        {(Meteor.user() && !Meteor.user().emails[0].verified) ? <li><a href="#"><FontAwesome name="warning" /> <u>"Votre adresse mail n'est pas encore verifié ! "</u> </a></li>: "" }
       </ul>
-    ) : <div className="nav navbar-nav navbar-right"><InlineForm   onInscriptionClick={this.props.onInscriptionClick} /></div> ;
+    ) : <div className="nav navbar-nav navbar-right"><InlineForm onInscriptionClick={this.props.onInscriptionClick} /></div> ;
 
     return(
       <nav className="nav navbar-inverse navbar-fixed-top">
@@ -53,12 +56,13 @@ class Header extends Component {
             <span className="icon-bar"></span>
             <span className="icon-bar"></span>
           </button>
-          <a href="#" className="navbar-brand" style={{ color:"" }}>Annoncio</a>
+          <Link to={"/"} className="navbar-brand" style={{ color:"" }}>Annoncio</Link>
         </div>
 
       <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul className="nav navbar-nav">
           <li className=""><a href="#"><span className="glyphicon glyphicon-flag" aria-hidden="true"></span>  Publier une Annonce <span className="sr-only">(current)</span></a></li>
+
         </ul>
 
         {authentication}

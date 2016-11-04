@@ -4,6 +4,7 @@ import { Brands } from '../../../imports/collections/brands';
 import 'react-select/dist/react-select.css';
 import Select from 'react-select';
 import _ from 'lodash';
+import FontAwesome from 'react-fontawesome';
 
 import ModelsCombo from './models_combo';
 
@@ -26,7 +27,6 @@ class BrandsCombo extends Component {
 
   render(){
 
-
     const Options = this.props.brands.map(brand => {
       const { name, _id } = brand;
       return { label: name, value: name }
@@ -34,7 +34,7 @@ class BrandsCombo extends Component {
 
     return(
       <div className="form-group">
-        <span className="glyphicon glyphicon-off"></span> <label className="label-control">Marque</label>
+        <FontAwesome name="renren"/> <label className="label-control">Marque</label>
         <Select
             name={"ok"}
             value={this.state.brand}

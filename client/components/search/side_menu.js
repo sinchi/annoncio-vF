@@ -1,10 +1,10 @@
 import React from 'react';
-import SearchBar from './search_bar';
+import SearchFilter from './search_filter';
 
 const SideMenu = () => {
   return(
       <div>
-        <SearchBar />
+        <SearchFilter />
       {/*  <fieldset className="side_menu">
           <legend>Catégorie:</legend>
             <div><span className="glyphicon glyphicon-earphone" aria-hidden="true"></span> <a href="#">Informatique et multimedia</a></div>

@@ -4,6 +4,7 @@ import { Brands } from '../../../imports/collections/brands';
 import 'react-select/dist/react-select.css';
 import Select from 'react-select';
 import _ from 'lodash';
+import FontAwesome from 'react-fontawesome';
 
 class ModelsCombo extends Component {
 
@@ -15,8 +16,8 @@ class ModelsCombo extends Component {
   onModelsChange(val){
     if(val && val.value){
       this.setState({ model: val.value, clearable: true });
-
       console.log("model", val);
+      
     }else{
       this.setState({ brand: '', clearable: false });
     }
@@ -31,8 +32,8 @@ class ModelsCombo extends Component {
     });
 
     return(
-      <div>
-        <label>Model</label>
+      <div className="form-group">
+        <FontAwesome name="trademark" /><label className="label-control">Model</label>
         <Select
             value={this.state.model}
             options={Options}

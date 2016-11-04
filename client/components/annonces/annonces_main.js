@@ -3,13 +3,14 @@ import AnnoncesList from './annonces_list';
 import { createContainer } from 'react-meteor-data';
 import {ModalContainer, ModalDialog} from 'react-modal-dialog';
 import { browserHistory } from 'react-router';
-import SignupForm from '../signup_form';
-import LoginForm from '../login_form';
+import SignupForm from '../authentication/signup_form';
+import LoginForm from '../authentication/login_form';
+import SideMenu from '../search/side_menu';
 class AnnoncesMain extends Component {
 
   constructor(props){
     super(props);
-    this.state = { isShowingModal: false };
+    this.state = { isShowingModal: false, category: '' };
   }
 
   handleClick(){
@@ -42,10 +43,22 @@ class AnnoncesMain extends Component {
     }
   }
 
+  onCategoryTest(){
+    console.log();
+  }
+
   render(){
     return(
-        <div>
-          <AnnoncesList annonces={ this.props.annonces } onInscriptionClick={ this.onInscriptionClick.bind(this) }/>
+
+        <div className="row" style={{ marginTop:"90px" }}>
+          <div className="col-xs-5 col-sm-3 col-md-2" style={{ position:"fixed" }}>
+            <SideMenu onCategoryTest={this.onCategoryTest}/>
+          </div>
+          <div className="col-xs-12 col-xs-offset-5 col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3">
+            <AnnoncesList category={this.state.category} annonces={ this.props.annonces } onInscriptionClick={ this.onInscriptionClick.bind(this) }/>
+          </div>
+
+
           {
             this.state.isShowingModal &&
             <ModalContainer onClose={this.handleClose.bind(this)}>
