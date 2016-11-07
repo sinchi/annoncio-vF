@@ -1,1 +1,0 @@
-var suzuki = [{name:"Alto"},{name:"Carry"},{name:"Celerio"},{name:"Grand Vitara"},{name:"Jimmy"},{name:"Maruti"},{name:"Swift"},{name:"SX4"},{name:"Vitara"}];

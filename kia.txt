@@ -1,1 +1,0 @@
-var kia = [{name:"Carens"},{name:"C'eed"},{name:"Cerato"},{name:"K2700"},{name:"Mohave"},{name:"Opirus"},{name:"Optima"},{name:"Picanto"},{name:"Rio"},{name:"Sorento"},{name:"Soul"},{name:"Sportage"}];

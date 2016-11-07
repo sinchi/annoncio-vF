@@ -1,1 +1,0 @@
-var hyundai = [{name:"Accent"},{name:"Atos"},{name:"Atos Prime"},{name:"Azera"},{name:"Coupe"},{name:"Elantra"},{name:"Genesis"},{name:"Grand i10"},{name:"H-1"},{name:"H-100"},{name:"i 10"},{name:"i 20"},{name:"i 30"},{name:"i 40"},{name:"ix 35"},{name:"Matrix"},{name:"Santa Fe"},{name:"Tucson"},{name:"Veracruz"}];

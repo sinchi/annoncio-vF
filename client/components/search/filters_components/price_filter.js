@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import FontAwesome from 'react-fontawesome';
 import 'rc-slider/assets/index.css';
 import Rcslider from 'rc-slider';
 class PriceFilter extends Component {
@@ -48,9 +49,9 @@ class PriceFilter extends Component {
               <div className="form-group">
                 <div className="col-xs-8" style={{ margin: "5px 0 5px 0", padding:0 }}>
 
-                  <span className="glyphicon glyphicon-minus"></span> <label className="form-label" htmlFor='price'>Prix Min:</label>
+                  <FontAwesome name="money" /> <label className="form-label" htmlFor='price'>Prix Min </label>  <FontAwesome name="minus-square" /> :
                   <input className="form-control" placeholder="Min" ref='priceMin' onChange={ this.onPriceMinInputChange.bind(this) } id='priceMin' type="text"  aria-label="Amount (to the nearest dollar)" />
-                  <span className="glyphicon glyphicon-plus"></span>  <label className="form-label" htmlFor='price'>Prix Max:</label>
+                  <FontAwesome name="money" />  <label className="form-label" htmlFor='price'>Prix Max </label>  <FontAwesome name="plus-square" /> :
                   <input className="form-control" placeholder="Max" ref='priceMax' onChange={ this.onPriceMaxInputChange.bind(this) } id='priceMax' type="text" aria-label="Amount (to the nearest dollar)" />
 
                   {/*<Rcslider

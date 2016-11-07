@@ -1,1 +1,0 @@
-var cadillac = [{name:"Allante"},{name:"BLS"},{name:"Brougham"},{name:"CTS"},{name:"DeVille"},{name:"DLS"},{name:"DTS"},{name:"Eldorado"},{name:"Escalade"},{name:"Fleetwood"},{name:"Seville"},{name:"SLS"},{name:"SRX"},{name:"STS"},{name:"XLR"}];

@@ -1,1 +1,0 @@
-var alpha = [{name:"33"},{name:"75"},{name:"8c"},{name:"145"},{name:"146"},{name:"147"},{name:"155"},{name:"156"},{name:"159"},{name:"164"},{name:"166"},{name:"147 gta"},{name:"Brera"},{name:"Giulietta"},{name:"Gt"},{name:"Gtv"},{name:"Mito"},{name:"Spider"}];

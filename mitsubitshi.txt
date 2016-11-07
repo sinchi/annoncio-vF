@@ -1,1 +1,0 @@
-var mitsubitshi = [{name:"canter"},{name:"L200"},{name:"lancer"},{name:"nativa"},{name:"outlander"},{name:"pajero"},{name:"pajero sport"},{name:"pick up"}];

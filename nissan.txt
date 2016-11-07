@@ -1,1 +1,0 @@
-var nissan = [{name:"350Z"},{name:"370Z"},{name:"Altima"},{name:"Juke"},{name:"Micra"},{name:"Murano"},{name:"Navara"},{name:"Pathfinder"},{name:"Patrol GR"},{name:"Pick up"},{name:"primera"},{name:"Qashqai"},{name:"Rogue"},{name:"Sunny"},{name:"Tiida"},{name:"X-Trail"}];

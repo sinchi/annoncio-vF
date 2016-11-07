@@ -1,1 +1,0 @@
-var mini = [{name:"cabrio"},{name:"cooper"},{name:"country man"},{name:"one"}];

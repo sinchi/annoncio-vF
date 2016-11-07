@@ -1,1 +1,0 @@
-var rover = [{name:"25"},{name:"45"},{name:"75"},{name:"Mini"},{name:"Serie 100"},{name:"Serie 200"},{name:"Serie 400"},{name:"Serie 600"},{name:"Serie 800"},{name:"SD1"},{name:"Streetwise"}];

@@ -1,40 +1,22 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
 import { createContainer } from 'react-meteor-data';
-import FontAwesome from 'react-fontawesome';
 import AnnoncesList from '../annonces/annonces_list';
+import SideMenuProfile from '../profile/side_menu_profile';
+
 
 class ProfilePage extends Component {
   render(){
+    const style = {
+      position:"fixed",
+      overflow: "auto"
+    }
     return(
       <div className="container" style={{ marginTop:"90px" }}>
-        <div className="col-xs-5 col-sm-3 col-md-2" style={{ position:"fixed" }}>
-          <ul className="list-group">
-            <li className="list-group-item">
-              <div className="media">
-                <div className="media-left">
-                  <a href="#">
-                    <img className="media-object" width="30" height="30" src="https://z-1-scontent-mad1-1.xx.fbcdn.net/v/t1.0-1/p160x160/14291890_10154930613105663_1850540376112361297_n.jpg?oh=baf50636e2236a30a6df5e07772ba6f3&oe=58A1038E" alt="image profile" />
-                  </a>
-                </div>
-                <div className="media-body">
-                   <label style={{ margin: "10px 0 0 0" }} className="label-control"><Link to={`/profile/${Meteor.userId()}`}>{ (Meteor.user()) ? Meteor.user().emails[0].address.split('@')[0] : "" }</Link></label>
-                 </div>
-              </div>
-            </li>
-            <li className="list-group-item">
-              <FontAwesome name="edit" size="2x" /> <label className="label-control"><a href="#">Modifier le profil</a></label>
-            </li>
-            <li className="list-group-item">
-              <FontAwesome name="envelope" size="2x" /> <label className="label-control"><a href="#"> Messages</a></label>
-            </li>
-            <li className="list-group-item">
-              <FontAwesome name="flag" size="2x" /> <label className="label-control"><a href="#"> Mes Annonces</a></label>
-            </li>
-          </ul>
+        <div className="col-xs-5 col-sm-3 col-md-2" style={style}>
+          <SideMenuProfile />
         </div>
         <div className="col-xs-12 col-xs-offset-5 col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3">
-          <AnnoncesList annonces={this.props.annonces} />
+          { this.props.children }
         </div>
       </div>
     )

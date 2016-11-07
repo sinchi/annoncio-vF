@@ -1,1 +1,0 @@
-var mazda = [{name:"2"},{name:"3"},{name:"5"},{name:"6"},{name:"323"},{name:"BK"},{name:"BT-50"},{name:"CX-9"},{name:"MX-5"},{name:"RX-8"}];

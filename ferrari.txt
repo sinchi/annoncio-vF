@@ -1,1 +1,0 @@
-var ferrari = [{name:"458"},{name:"488"},{name:"California"},{name:"F40"},{name:"F430"},{name:"Nitro"},{name:"Ram"}];

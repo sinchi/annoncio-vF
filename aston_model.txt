@@ -1,1 +1,0 @@
-var aston = [{name:"Amv8"},{name:"DB7"},{name:"DB9"},{name:"DBS"},{name:"Vanquish"},{name:"Vantage"},{name:"Virage"}];
