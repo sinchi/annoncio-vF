@@ -17,6 +17,7 @@ Meteor.startup(() => {
   }
 
   process.env.MAIL_URL = 'smtp://' + encodeURIComponent(smtp.username) + ':' + encodeURIComponent(smtp.password) + '@' + encodeURIComponent(smtp.server) + ':' + smtp.port;
+  process.env.MONGO_URL='mongodb://sinchi:3afritto@ds021650.mlab.com:21650/annoncio';
 
   // Cities Datas
   const citiesNumber = Cities.find({}).count();
