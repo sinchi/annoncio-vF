@@ -7,9 +7,9 @@ class AnnoncesCarousel extends Component {
     const { title, images, _id  } = this.props.annonce;
     const { items, description } = images;
     const idCarousel = `#carousel-${_id}`;
-    
 
-    const Items = items.map(item => {
+
+    const Items = items.length > 0 ? items.map(item => {
       const { img, alt, caption, active } = item;
       const className = `item ${active}`;
       return (
@@ -20,7 +20,7 @@ class AnnoncesCarousel extends Component {
           </div>
         </div>
       )
-    });
+    }) : '';
 
     var i = -1;
     const Indicators = items.map(item => {
@@ -41,12 +41,10 @@ class AnnoncesCarousel extends Component {
             { Indicators }
           </ol>
 
-
           <div className="carousel-inner" role="listbox">
             { Items }
             <p>{ description }</p>
           </div>
-
 
           <a className="left carousel-control" href={idCarousel} role="button" data-slide="prev">
             <span className="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>

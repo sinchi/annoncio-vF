@@ -14,6 +14,7 @@ class SearchFilter extends Component {
 
   onCategoriesChange(val){
     this.setState({ category: val });
+    console.log("category: " + val);
   }
 
   onCityChange(val){
@@ -24,6 +25,7 @@ class SearchFilter extends Component {
 
     const radiosImmobilier = ["Tout", "Offre", "Demande", "Offre de location", "Demande de location"];
     const radiosAll = ["Tout", "Offre", "Demande"];
+
 
     return(
 

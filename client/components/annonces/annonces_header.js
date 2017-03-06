@@ -41,16 +41,16 @@ class AnnoncesHeader extends Component{
   }*/
 
   render(){
-    const { image, createdAt, username, _id  } = this.props.annonce;
+    const { image, createdAt, owner, _id  } = this.props.annonce;
     const upsPercent = `${100 * (this.state.ups / (this.state.ups + this.state.downs))}%`;
     const downsPercent = `${100 * (this.state.downs / (this.state.ups + this.state.downs))}%`;
-  
+
     moment.locale('fr');
 
     const likesButtons = (Meteor.userId()) ? (
       <div>
-      <button type="button" className="btn btn-success" onClick={  (!Meteor.userId()) ? this.props.onInscriptionClick : this.onUpsClick.bind(this)   }><span className="glyphicon glyphicon-thumbs-up"></span></button>
-      <button type="button" className="btn btn-danger pull-right" onClick={  (!Meteor.userId()) ? this.props.onInscriptionClick : this.onDownsClick.bind(this)   }><span className="glyphicon glyphicon-thumbs-down"></span></button>
+        <button type="button" className="btn btn-success" onClick={  (!Meteor.userId()) ? this.props.onInscriptionClick : this.onUpsClick.bind(this)   }><span className="glyphicon glyphicon-thumbs-up"></span></button>
+        <button type="button" className="btn btn-danger pull-right" onClick={  (!Meteor.userId()) ? this.props.onInscriptionClick : this.onDownsClick.bind(this)   }><span className="glyphicon glyphicon-thumbs-down"></span></button>
       </div>
     ) : '';
 
@@ -70,7 +70,7 @@ class AnnoncesHeader extends Component{
             </a>
           </div>
           <div className="media-body">
-            <h4 className="media-heading"><a href="#">{username}</a> <span style={{ color:"rgb(39,180,189)" }} className="glyphicon glyphicon-flash" aria-hidden="true"></span></h4>
+            <h4 className="media-heading"><a href="#">{owner.email}</a> <span style={{ color:"rgb(39,180,189)" }} className="glyphicon glyphicon-flash" aria-hidden="true"></span></h4>
             {`${moment(createdAt).fromNow(true)}`} <span className="glyphicon glyphicon-globe" aria-hidden="true"></span>
           </div>
         </div>

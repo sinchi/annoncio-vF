@@ -10,7 +10,7 @@ class SideMenuProfile extends Component {
           <Link to={`/profile/${Meteor.userId()}`} className="list-group-item">
             <div className="media">
               <div className="media-left">
-                  <img className="media-object" width="30" height="30" src="https://z-1-scontent-mad1-1.xx.fbcdn.net/v/t1.0-1/p160x160/14291890_10154930613105663_1850540376112361297_n.jpg?oh=baf50636e2236a30a6df5e07772ba6f3&oe=58A1038E" alt="image profile" />                
+                  <img className="media-object" width="30" height="30" src="http://arswiki.info/twiki/pub/Main/UserProfileHeader/default-user-profile.jpg" alt="image profile" />                
               </div>
               <div className="media-body">
                  <label style={{ margin: "10px 0 0 0" }} className="label-control">{ (Meteor.user()) ? Meteor.user().emails[0].address.split('@')[0] : "" }</label>

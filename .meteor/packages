@@ -22,3 +22,5 @@ twbs:bootstrap@3.3.6
 fortawesome:fontawesome
 react-meteor-data
 accounts-password
+jimmiebtlr:slingshot-cloudinary
+lepozepo:cloudinary

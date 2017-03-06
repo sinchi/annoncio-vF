@@ -6,6 +6,8 @@ import { browserHistory } from 'react-router';
 import SignupForm from '../authentication/signup_form';
 import LoginForm from '../authentication/login_form';
 import SideMenu from '../search/side_menu';
+import Annonces from '../../../imports/collections/annonces';
+
 class AnnoncesPage extends Component {
 
   constructor(props){
@@ -44,7 +46,7 @@ class AnnoncesPage extends Component {
   }
 
   onCategoryTest(){
-    console.log();
+    console.log("onCategoryTest");
   }
 
   render(){
@@ -57,7 +59,6 @@ class AnnoncesPage extends Component {
           <div className="col-xs-12 col-xs-offset-5 col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3">
             <AnnoncesList category={this.state.category} annonces={ this.props.annonces } onInscriptionClick={ this.onInscriptionClick.bind(this) }/>
           </div>
-
 
           {
             this.state.isShowingModal &&
@@ -84,6 +85,7 @@ class AnnoncesPage extends Component {
 }
 
 export default createContainer((props) => {
+  Meteor.subscribe('annonces');
   const comments = [
     {
       _id:1,
@@ -134,7 +136,7 @@ export default createContainer((props) => {
     {
       _id: "1",
       username:"Ayoub Sinchi",
-      image: "https://z-1-scontent-mad1-1.xx.fbcdn.net/v/t1.0-1/p160x160/14291890_10154930613105663_1850540376112361297_n.jpg?oh=baf50636e2236a30a6df5e07772ba6f3&oe=58A1038E",
+      image: "http://arswiki.info/twiki/pub/Main/UserProfileHeader/default-user-profile.jpg",
       createdAt: new Date(),
       title: "Samsung Galaxy S4",
       images:
@@ -142,12 +144,12 @@ export default createContainer((props) => {
               items:[
                 {
 
-                  img: "http://actu.meilleurmobile.com/wp-content/uploads/2015/04/Flash-Recovery-Samsung-Galaxy-S4-Canadian-900x600.jpg",
+                  img: "http://res.cloudinary.com/annoncio/image/upload/v1483201076/s17xgequrmpqcsqjeqt6.jpg",
                   alt:"image1",
                   caption: "Galaxy s4"
                 },
                 {
-                  img: "http://www.revolucaodigital.net/wp-content/uploads/2013/04/apresentacao_galaxy-s4_03-610x406.jpg",
+                  img: "http://res.cloudinary.com/annoncio/image/upload/v1483201077/nknooolvmxpjf7fkrdlr.jpg",
                   alt:"image2",
                   caption: "Encore new",
                   active:"active"
@@ -184,6 +186,6 @@ export default createContainer((props) => {
     }
   ]
   return {
-    annonces: annonces
+    annonces: Annonces.find({}, { sort: { createdAt: -1 } }).fetch()
   }
 }, AnnoncesPage);

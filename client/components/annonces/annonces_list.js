@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Annonce from './annonce';
 
 class AnnoncesList extends Component {
+
   render(){
 
     const Annonces = this.props.annonces.map((annonce => {

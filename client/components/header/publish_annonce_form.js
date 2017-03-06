@@ -14,7 +14,19 @@ class PublishAnnonceForm extends Component {
   render(){
     const radiosImmobilier = ["Offre", "Demande", "Offre de location", "Demande de location"];
     const radiosAll = ["Offre", "Demande"];
-    const { isShowingModal, handleClose, imagesUrl, onInputFileChange, onPublishAnnonceSubmit, onCategoriesChange, onCityChange, onOffreChange, category, city, offre  } = this.props;
+    const { 
+        isShowingModal, 
+        handleClose, 
+        imagesUrl, 
+        onInputFileChange, 
+        onPublishAnnonceSubmit, 
+        onCategoriesChange, 
+        onCityChange, 
+        onOffreChange, 
+        category, 
+        city, 
+        offre
+    } = this.props;
     const images = imagesUrl.map((img) => {
       return (
           <div className="col-xs-3" key={ img }>

@@ -14,8 +14,6 @@ class CommentBox extends Component {
       color:"white"
     };
 
-
-
     return(
       <form onSubmit={  (!Meteor.userId()) ? this.props.onInscriptionClick : this.onCommentClick.bind(this)   }>
         <div className="form-group">

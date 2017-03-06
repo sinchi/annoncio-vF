@@ -3,8 +3,17 @@ import { Cities } from '../imports/collections/cities';
 import { Categories } from '../imports/collections/categories';
 import { Users } from '../imports/collections/users';
 import { Brands } from '../imports/collections/brands';
+import { Annonces } from '../imports/collections/annonces';
 import _ from 'lodash';
 import { address } from 'faker';
+//import {Cloudinary} from 'cloudinary';
+
+
+Cloudinary.config({
+  cloud_name: 'annoncio',
+  api_key: '835847979639349',
+  api_secret: '3VNVBVYVn50v1Pe0dvyhrsPjD9U'
+});
 
 Meteor.startup(() => {
   // code to run on server at startup

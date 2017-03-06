@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Meteor } from 'meteor/meteor';
 import { browserHistory, Link } from 'react-router';
 import { createContainer } from 'react-meteor-data';
 
@@ -13,7 +14,15 @@ class Header extends Component {
 
   constructor(props){
     super(props);
-    this.state = { category:'', brand:'', model: '', city:'', offre:'',  isShowingModal: false, imagesUrl: [] }
+    this.state = {
+        category:'',
+        brand:'',
+        model: '',
+        city:'',
+        offre:'',
+        isShowingModal: false,
+        imagesUrl: []
+    }
   }
 
   onLogoutClick(event){
@@ -31,11 +40,48 @@ class Header extends Component {
 
   onPublishAnnonceSubmit(event){
     event.preventDefault();
+    $.cloudinary.config({
+      cloud_name: "annoncio"
+    });
     const title = this.refs.publish_annonce_form.refs.title.value;
     const description = this.refs.publish_annonce_form.refs.description.value;
     const price = this.refs.publish_annonce_form.refs.price.value;
+    const category = this.state.category;
+    const city = this.state.city;
+    const offre = this.state.offre;
+    var images = this.state.imagesUrl;
+    var items = [];
+    _.each(images, (img) => {
+      Cloudinary._upload_file(img, {},  function(err, res) {
+            if(!err){
+              var item = {
 
-    console.log(`titre : ${title}, description: ${description}, price: ${price}, offre:${this.state.offre}, category: ${this.state.category.value}`);
+                "img": res.url,
+                "alt": res.url,
+                "caption": "",
+                "active": items.length === 0 ? "active": ""
+              };
+              items.push(item);
+              if(images.length === items.length){
+                const newAnnonce = {
+                  "title" : title,
+                  "description" : description,
+                  "price" : price,
+                  "category": category,
+                  "city": city,
+                  "offre": offre,
+                  "images": {
+                    "items": items,
+                    "description": ""
+                  }
+                };
+              return  Meteor.call('annonces.insert', newAnnonce);
+              }
+            }
+          });
+    });
+    this.setState({ isShowingModal: false, imagesUrl:[] });
+    //console.log(`titre : ${title}, description: ${description}, price: ${price}, offre:${this.state.offre}, category: ${this.state.category.value}`);
   }
 
   onCategoriesChange(val){
@@ -49,7 +95,7 @@ class Header extends Component {
   onOffreChange(event){
     this.setState({ offre: (event.target.value) ? event.target.value : '' });
     console.log("offre" ,event.target.value);
-  }  
+  }
 
   onInputFileChange(event){
     event.preventDefault();
@@ -59,16 +105,18 @@ class Header extends Component {
 
     _.each(images, (image) => {
           let picReader = new FileReader();
+          console.log("loading images...");
           picReader.addEventListener("load", function(event) {
             let picFile = event.target;
             let imagesUrl = that.state.imagesUrl;
             imagesUrl.push(picFile.result);
             that.setState({ imagesUrl: imagesUrl });
+            console.log("End of loading images");
           });
           picReader.readAsDataURL(image);
     });
 
-    console.log("images", this.state.imagesUrl);
+    //console.log("images", this.state.imagesUrl);
   }
 
   handleClose(event){
@@ -83,7 +131,7 @@ class Header extends Component {
       <ul className="nav navbar-nav navbar-right" style={{ margin: "0" }}>
         <li>
           <Link to={`/profile/${Meteor.userId()}`}>
-            <img className="media" width="30" height="30" alt="" src="https://z-1-scontent-mad1-1.xx.fbcdn.net/v/t1.0-1/p160x160/14291890_10154930613105663_1850540376112361297_n.jpg?oh=baf50636e2236a30a6df5e07772ba6f3&oe=58A1038E" /> { email }
+            <img className="media" width="30" height="30" alt="" src="http://arswiki.info/twiki/pub/Main/UserProfileHeader/default-user-profile.jpg" /> { email }
           </Link>
         </li>
 

@@ -9,9 +9,9 @@ class CommentsList extends Component {
       overflow: "auto"
     }
 
-    const Comments = this.props.comments.map(comment => {
+    const Comments = this.props.comments ? this.props.comments.map(comment => {
       return <Comment key={ comment._id } comment={comment} />
-    });
+    }) : '';
 
     return(
       <div className="list-group" style={style}>

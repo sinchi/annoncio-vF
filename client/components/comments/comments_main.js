@@ -22,10 +22,8 @@ class CommentsMain extends Component{
           <CommentsList comments={ this.props.comments } />
           { commentBox }
         </div>
-
-
-
     )
+    
   }
 }
 

@@ -16,6 +16,7 @@ class App extends Component {
   handleClick(){
     this.setState({isShowingModal: true})
   }
+
   handleClose(event){
     if(event)
     event.preventDefault();
@@ -86,13 +87,14 @@ class App extends Component {
           this.state.isShowingModal &&
           <ModalContainer onClose={this.handleClose.bind(this)}>
             <ModalDialog onClose={this.handleClose.bind(this)}>
-
               <div className="row">
                 <div className="col-xs-6">
                     <h1>Inscription</h1>
-                    <SignupForm ref="embedded_signup_form" onInscriptionClick={ this.onSignupClick.bind(this) }  onClose={ this.handleClose.bind(this) }/>
+                    <SignupForm
+                    ref="embedded_signup_form" onInscriptionClick={ this.onSignupClick.bind(this) }  
+                    onClose={ this.handleClose.bind(this) }
+                    />
                 </div>
-
                 <div className="col-xs-6">
                     <h1>Connexion</h1>
                     <LoginForm ref="embedded_login_form" onLoginClick={ this.onLoginClick.bind(this) }/>
