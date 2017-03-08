@@ -12,7 +12,7 @@ class AnnoncesPage extends Component {
 
   constructor(props){
     super(props);
-    this.state = { isShowingModal: false, category: '' };
+    this.state = { isShowingModal: false, category: '', city:'' , search: {} };
   }
 
   handleClick(){
@@ -45,16 +45,30 @@ class AnnoncesPage extends Component {
     }
   }
 
-  onCategoryTest(){
-    console.log("onCategoryTest");
+  onOffreChange(event){
+    this.setState({ typeOffre: event.target.value, 'search.offre': event.target.value });
+    Meteor.subscribe("annonces", this.state.search);
+  }
+
+  onCategoriesChange(val){
+    this.setState({ category: val });
+  }
+
+  onCityChange(val){
+    console.log(val);
+    this.setState({ city: val });
   }
 
   render(){
     return(
-
         <div className="container" style={{ marginTop:"90px" }}>
           <div className="col-xs-5 col-sm-3 col-md-2" style={{ position:"fixed" }}>
-            <SideMenu onCategoryTest={this.onCategoryTest}/>
+            <SideMenu
+              city={this.state.city}
+              category={this.state.category}
+              onCityChange={this.onCityChange.bind(this)}
+              onOffreChange={this.onOffreChange.bind(this)}
+              onCategoriesChange={this.onCategoriesChange.bind(this)}/>
           </div>
           <div className="col-xs-12 col-xs-offset-5 col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3">
             <AnnoncesList category={this.state.category} annonces={ this.props.annonces } onInscriptionClick={ this.onInscriptionClick.bind(this) }/>
@@ -85,7 +99,7 @@ class AnnoncesPage extends Component {
 }
 
 export default createContainer((props) => {
-  Meteor.subscribe('annonces');
+  Meteor.subscribe('annonces', {});
   const comments = [
     {
       _id:1,

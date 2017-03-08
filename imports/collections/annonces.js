@@ -5,12 +5,20 @@ import { check } from 'meteor/check';
 export default Annonces = new Mongo.Collection('annonces');
 
 if(Meteor.isServer){
-  Meteor.publish('annonces', function allAnnonces(){
+  Meteor.publish('annonces', function allAnnonces(search){
+     check(search, Object);
+     console.log(search);
     return Annonces.find({
-      $or: [
-        { moderated: true },
-        { 'owner.id': this.userId }
+      $and:[
+        {
+          $or: [
+            { moderated: false },
+            { 'owner.id': this.userId },
+          ]
+        },
+        search
       ]
+
     }, { sort: { createdAt: -1 } });
   });
 
@@ -29,7 +37,7 @@ Meteor.methods({
     }
 
     let owner = Meteor.users.findOne(this.userId);
-    annonce.owner = { "id" : owner._id, "email": owner.emails[0].address };
+    annonce.owner = { "id" : owner._id, "email": owner.emails[0].address, image: "http://arswiki.info/twiki/pub/Main/UserProfileHeader/default-user-profile.jpg" };
     annonce.createdAt = new Date();
     annonce.moderated = false;
 

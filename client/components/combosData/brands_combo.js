@@ -15,6 +15,13 @@ class BrandsCombo extends Component {
     this.state = { brand:'', clearable: false };
   }
 
+  componentWillReceiveProps(props){
+    const { brand } = props;
+    if(brand && brand.value){
+      this.setState({ brand: brand.value });
+    }
+  }
+
   onBrandsChange(val){
     if(val && val.value){
       this.setState({ brand: val.value, clearable: true });
@@ -39,11 +46,15 @@ class BrandsCombo extends Component {
             name={"ok"}
             value={this.state.brand}
             options={Options}
-            onChange={ this.onBrandsChange.bind(this) }
+            onChange={ this.props.onBrandsChange }
             clearable={this.state.clearable}
             placeholder={"Choisir la marque"}
             noResultsText={ "Aucune marque" } />
-            <ModelsCombo parent={ this.state.brand } />
+          <ModelsCombo
+            model={this.props.model}
+            onModelsChange={this.props.onModelsChange}
+             parent={ this.state.brand }
+             />
       </div>
     )
   }

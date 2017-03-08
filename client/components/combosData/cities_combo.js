@@ -17,8 +17,7 @@ class CitiesCombo extends Component {
   componentWillReceiveProps(props){
     const { val } = props;
     if (val && val.value){
-      this.setState({ city: val.value, clearable: true });
-      console.log("city", val.value);
+      this.setState({ city: val.value, clearable: true });    
     }else {
       this.setState({ city:'', clearable: false });
     }

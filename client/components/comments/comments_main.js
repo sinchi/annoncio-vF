@@ -18,12 +18,12 @@ class CommentsMain extends Component{
 
     return(
         <div>
-          <h3 style={{ margin: "10px" , color:"blue", fontWeight: "bold"}}>2000 DH</h3>
+          <h3 style={{ margin: "10px" , color:"blue", fontWeight: "bold"}}>{this.props.annonce.price} DH</h3>     
           <CommentsList comments={ this.props.comments } />
           { commentBox }
         </div>
     )
-    
+
   }
 }
 

@@ -10,7 +10,7 @@ class TypeOffreFilter extends Component {
       return (
         <div className="radio" key={radio}>
           <label>
-            <input type="radio" name="type_offre" ref={radio}  value={radio} checked={ offre === radio }/>
+            <input type="radio" name="type_offre" ref={radio}  value={radio} />
             <strong>{radio}</strong>
           </label>
         </div>
@@ -18,7 +18,7 @@ class TypeOffreFilter extends Component {
     });
 
     return(
-      <div onChange={ onOffreChange } style={{ margin: "15px 0 0 0" }}>
+      <div onChange={ onOffreChange } value={offre} style={{ margin: "15px 0 0 0" }}>
         <span className="glyphicon glyphicon-pushpin"></span>  <label className="form-label" htmlFor='offre'>Type d''offre</label>
           { radios }
       </div>

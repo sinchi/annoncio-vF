@@ -47,6 +47,8 @@ class Header extends Component {
     const description = this.refs.publish_annonce_form.refs.description.value;
     const price = this.refs.publish_annonce_form.refs.price.value;
     const category = this.state.category;
+    const brand = this.state.brand;
+    const model = this.state.model;
     const city = this.state.city;
     const offre = this.state.offre;
     var images = this.state.imagesUrl;
@@ -55,7 +57,6 @@ class Header extends Component {
       Cloudinary._upload_file(img, {},  function(err, res) {
             if(!err){
               var item = {
-
                 "img": res.url,
                 "alt": res.url,
                 "caption": "",
@@ -68,6 +69,8 @@ class Header extends Component {
                   "description" : description,
                   "price" : price,
                   "category": category,
+                  "brand": brand,
+                  "model": model,
                   "city": city,
                   "offre": offre,
                   "images": {
@@ -90,6 +93,14 @@ class Header extends Component {
 
   onCityChange(val){
     this.setState({ city: val });
+  }
+
+  onBrandsChange(val){
+    this.setState({ brand: val });
+  }
+
+  onModelsChange(val){
+    this.setState({ model: val });
   }
 
   onOffreChange(event){
@@ -186,10 +197,14 @@ class Header extends Component {
             onPublishAnnonceSubmit={ this.onPublishAnnonceSubmit.bind(this) }
             onCategoriesChange={ this.onCategoriesChange.bind(this) }
             onCityChange={ this.onCityChange.bind(this) }
+            onBrandsChange = { this.onBrandsChange.bind(this) }
+            onModelsChange = { this.onModelsChange.bind(this) }
+            brand= { this.state.brand }
             category={ this.state.category }
             city={ this.state.city }
             onOffreChange={ this.onOffreChange.bind(this) }
             offre= { this.state.offre }
+            model= { this.state.model }
             ref="publish_annonce_form"
             />
       </div>

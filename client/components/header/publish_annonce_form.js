@@ -14,17 +14,21 @@ class PublishAnnonceForm extends Component {
   render(){
     const radiosImmobilier = ["Offre", "Demande", "Offre de location", "Demande de location"];
     const radiosAll = ["Offre", "Demande"];
-    const { 
-        isShowingModal, 
-        handleClose, 
-        imagesUrl, 
-        onInputFileChange, 
-        onPublishAnnonceSubmit, 
-        onCategoriesChange, 
-        onCityChange, 
-        onOffreChange, 
-        category, 
-        city, 
+    const {
+        isShowingModal,
+        handleClose,
+        imagesUrl,
+        onInputFileChange,
+        onPublishAnnonceSubmit,
+        onCategoriesChange,
+        onBrandsChange,
+        onModelsChange,
+        onCityChange,
+        onOffreChange,
+        category,
+        brand,
+        model,
+        city,
         offre
     } = this.props;
     const images = imagesUrl.map((img) => {
@@ -44,7 +48,14 @@ class PublishAnnonceForm extends Component {
               <div className="panel-body">
 
                     <div className="col-xs-6">
-                        <CategoriesCombo val={ category } onCategoriesChange={ onCategoriesChange } />
+                        <CategoriesCombo
+                          brand={brand}
+                          onBrandsChange={onBrandsChange}
+                          model={model}
+                          onModelsChange={onModelsChange}
+                          val={ category }
+                          onCategoriesChange={ onCategoriesChange }
+                          />
                         {
                           (category && category.parent !== "EMPLOI ET SERVICES" && category.value !== "EMPLOI ET SERVICES") && (
                             <div className="form-group">

@@ -41,9 +41,10 @@ class AnnoncesHeader extends Component{
   }*/
 
   render(){
-    const { image, createdAt, owner, _id  } = this.props.annonce;
+    const { createdAt, owner, _id  } = this.props.annonce;
     const upsPercent = `${100 * (this.state.ups / (this.state.ups + this.state.downs))}%`;
     const downsPercent = `${100 * (this.state.downs / (this.state.ups + this.state.downs))}%`;
+    const username = owner.email.split('@')[0];
 
     moment.locale('fr');
 
@@ -66,11 +67,11 @@ class AnnoncesHeader extends Component{
         <div className="media col-xs-6">
           <div className="media-left">
             <a href="#">
-              <img className="media-object" src={image} width="49" height="50" alt="" />
+              <img className="media-object" src={owner.image} width="49" height="50" alt="" />
             </a>
           </div>
           <div className="media-body">
-            <h4 className="media-heading"><a href="#">{owner.email}</a> <span style={{ color:"rgb(39,180,189)" }} className="glyphicon glyphicon-flash" aria-hidden="true"></span></h4>
+            <h4 className="media-heading"><a href="#">{username}</a> <span style={{ color:"rgb(39,180,189)" }} className="glyphicon glyphicon-flash" aria-hidden="true"></span></h4>
             {`${moment(createdAt).fromNow(true)}`} <span className="glyphicon glyphicon-globe" aria-hidden="true"></span>
           </div>
         </div>
@@ -86,7 +87,6 @@ class AnnoncesHeader extends Component{
           </div>
 
           { likesButtons }
-
 
           {/*<StarRatingComponent
                     name={_id}

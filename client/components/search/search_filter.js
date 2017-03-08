@@ -9,38 +9,34 @@ class SearchFilter extends Component {
 
   constructor(props){
     super(props);
-    this.state = { category:'', city:'' }
-  }
-
-  onCategoriesChange(val){
-    this.setState({ category: val });
-    console.log("category: " + val);
-  }
-
-  onCityChange(val){
-    this.setState({ city: val });
   }
 
   render(){
 
     const radiosImmobilier = ["Tout", "Offre", "Demande", "Offre de location", "Demande de location"];
     const radiosAll = ["Tout", "Offre", "Demande"];
-
+    const {
+      onOffreChange,
+      city,
+      onCityChange,
+      onCategoriesChange,
+      category
+    } = this.props;
 
     return(
 
           <form>
             <div className="form-group city">
-              <CitiesCombo onCityChange={ this.onCityChange.bind(this) } val={ this.state.city }/>
+              <CitiesCombo onCityChange={ onCityChange } val={ city }/>
             </div>
             <div className="form-group category">
-              <CategoriesCombo onCategoriesChange={ this.onCategoriesChange.bind(this) } val={ this.state.category }/>
+              <CategoriesCombo onCategoriesChange={ onCategoriesChange } val={ category }/>
             </div>
             {
-              (this.state.category.value && this.state.category.parent !== "EMPLOI ET SERVICES" && this.state.category.value !== "EMPLOI ET SERVICES") && (
+              (category && category.parent !== "EMPLOI ET SERVICES" && category.value !== "EMPLOI ET SERVICES") && (
                 <div className="form-group">
-                  <TypeOffreFilter radios={(this.state.category.value === "IMMOBILIER" || this.state.category.parent==="IMMOBILIER") ? radiosImmobilier : radiosAll}/>
-                  <PriceFilter min={500} max={100000} step={100}  category={ this.state.category } />
+                  <TypeOffreFilter onOffreChange={onOffreChange} radios={(category.value === "IMMOBILIER" || category.parent==="IMMOBILIER") ? radiosImmobilier : radiosAll}/>
+                  <PriceFilter min={500} max={100000} step={100}  category={category } />
                 </div>
               )
             }

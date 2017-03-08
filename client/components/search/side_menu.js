@@ -1,10 +1,23 @@
 import React from 'react';
 import SearchFilter from './search_filter';
 
-const SideMenu = () => {
+const SideMenu = (props) => {
+  const {
+    city,
+    onCityChange,
+    category,
+    onCategoriesChange
+  } = props;
   return(
       <div>
-        <SearchFilter />
+        <SearchFilter
+          city={city}
+          onCityChange={onCityChange}
+          category={category}
+          onCategoriesChange={onCategoriesChange}
+          offre={props.offre}
+          onOffreChange={props.onOffreChange}
+          />
       {/*  <fieldset className="side_menu">
           <legend>Catégorie:</legend>
             <div><span className="glyphicon glyphicon-earphone" aria-hidden="true"></span> <a href="#">Informatique et multimedia</a></div>

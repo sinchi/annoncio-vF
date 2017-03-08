@@ -13,11 +13,18 @@ class ModelsCombo extends Component {
     this.state = { model:'', clearable: false };
   }
 
+  componentWillReceiveProps(props){
+    const { model } = props;
+    if(model && model.value){
+      this.setState({ model: model });
+    }
+  }
+
   onModelsChange(val){
     if(val && val.value){
       this.setState({ model: val.value, clearable: true });
       console.log("model", val);
-      
+
     }else{
       this.setState({ brand: '', clearable: false });
     }
@@ -37,7 +44,7 @@ class ModelsCombo extends Component {
         <Select
             value={this.state.model}
             options={Options}
-            onChange={ this.onModelsChange.bind(this) }
+            onChange={ this.props.onModelsChange }
             clearable={this.state.clearable}
             placeholder={"Choisir le model"}
             noResultsText={ "Aucun model" } />

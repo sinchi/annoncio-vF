@@ -95,7 +95,12 @@ class CategoriesCombo extends Component {
                 {
                   (this.state.category && this.state.category === "Voitures") && (
                     <div style={{ margin:"10px 0" }}>
-                      <BrandsCombo />
+                      <BrandsCombo
+                        brand={this.props.brand}
+                         onBrandsChange={this.props.onBrandsChange}
+                         model={this.props.model}
+                         onModelsChange={this.props.onModelsChange}
+                         />
                     </div>
                   )
                 }

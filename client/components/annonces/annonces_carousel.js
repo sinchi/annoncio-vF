@@ -37,23 +37,33 @@ class AnnoncesCarousel extends Component {
         <h4>{ title }</h4>
         <div id={`carousel-${_id}`} className="carousel slide" data-ride="carousel">
 
-          <ol className="carousel-indicators">
-            { Indicators }
-          </ol>
+          {
+            items.length > 1 ? (
+              <ol className="carousel-indicators">
+                { Indicators }
+              </ol>
+            ): ''
+          }
 
           <div className="carousel-inner" role="listbox">
             { Items }
             <p>{ description }</p>
           </div>
 
-          <a className="left carousel-control" href={idCarousel} role="button" data-slide="prev">
-            <span className="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-            <span className="sr-only">Précédent</span>
-          </a>
-          <a className="right carousel-control" href={idCarousel} role="button" data-slide="next">
-            <span className="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-            <span className="sr-only">Suivant</span>
-          </a>
+          {
+            items.length > 1 ? (
+              <a className="left carousel-control" href={idCarousel} role="button" data-slide="prev">
+                <span className="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span className="sr-only">Précédent</span>
+              </a>) : ''
+          }
+              {
+                items.length > 1 ? (  <a className="right carousel-control" href={idCarousel} role="button" data-slide="next">
+                <span className="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span className="sr-only">Suivant</span>
+              </a>
+            ) : ''
+          }
         </div>
       </div>
     )
