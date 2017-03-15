@@ -66,7 +66,7 @@ class CategoriesCombo extends Component {
         this.setState({ icon: "th" });
         break;
       }
-      console.log("category", val);
+    //  console.log("category", val);
     }else{
       this.setState({ category: '', clearable: false, categoryObject: {} });
     }

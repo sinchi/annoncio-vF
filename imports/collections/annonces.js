@@ -8,18 +8,7 @@ if(Meteor.isServer){
   Meteor.publish('annonces', function allAnnonces(search){
      check(search, Object);
      console.log(search);
-    return Annonces.find({
-      $and:[
-        {
-          $or: [
-            { moderated: false },
-            { 'owner.id': this.userId },
-          ]
-        },
-        search
-      ]
-
-    }, { sort: { createdAt: -1 } });
+     return Annonces.find(search, { sort: { createdAt: -1 } });          
   });
 
   Meteor.publish('annoncesOwner', function getAnnoncesOwner(){

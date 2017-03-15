@@ -91,7 +91,7 @@ class App extends Component {
                 <div className="col-xs-6">
                     <h1>Inscription</h1>
                     <SignupForm
-                    ref="embedded_signup_form" onInscriptionClick={ this.onSignupClick.bind(this) }  
+                    ref="embedded_signup_form" onInscriptionClick={ this.onSignupClick.bind(this) }
                     onClose={ this.handleClose.bind(this) }
                     />
                 </div>
