@@ -5,19 +5,17 @@ import { browserHistory } from 'react-router';
 import SignupForm from '../authentication/signup_form';
 import LoginForm from '../authentication/login_form';
 import SideMenu from '../search/side_menu';
-import Annonces from '../../../imports/collections/annonces';
 
-let SEARCH = {};
 
 class AnnoncesPage extends Component {
 
   constructor(props){
     super(props);
-    this.state = { isShowingModal: false, category: '', city:''};
+    this.state = { isShowingModal: false, category: '', city:'', model:'', brand:'', offre:''};
   }
 
   componentDidMount(){
-      console.log("didMount");
+      this.setState({ offre: 'Tout' });
   }
 
   componentWillUnmount(){
@@ -38,6 +36,7 @@ class AnnoncesPage extends Component {
     this.handleClick();
   }
 
+
   onLoginClick(event){
     event.preventDefault();
     const email = this.refs.embedded_login_form.refs.login_email.value;
@@ -55,26 +54,32 @@ class AnnoncesPage extends Component {
   }
 
   onOffreChange(event){
-    this.setState({ typeOffre: event.target.value, 'search.offre': event.target.value });
-    Meteor.subscribe("annonces", this.state.search);
+    this.setState({ typeOffre: event.target.value });
   }
 
   onCategoriesChange(val){
-    if(val && val.value){
-      this.SEARCH =  Object.assign({}, this.SEARCH, {'category.value': val.value});
-    }else{
-      this.SEARCH =  Object.assign({}, this.SEARCH, {'category.value': ""});
-    }
-    this.setState({ search: this.SEARCH });
-    //console.log(this.SEARCH);
-    //Meteor.subscribe('annonces', this.SEARCH);
-    this.setState({ category: val });
-
+    this.setState({ category: val, model:'', brand:'' });
   }
 
   onCityChange(val){
     this.setState({ city: val });
-    console.log(( val && val.value) ? val.value : "");
+  }
+
+  onBrandsChange(val){
+    this.setState({ brand: val, model: '' });
+  }
+
+  onModelsChange(val){
+    this.setState({ model: val });
+  }
+
+  onOffreChange(event){
+    this.setState({ offre: (event.target.value) ? event.target.value : '' });
+  }
+
+  addComment(comment){
+    Meteor.call('comments.insert', comment);
+    console.log(comment);
   }
 
   render(){
@@ -84,19 +89,36 @@ class AnnoncesPage extends Component {
             <SideMenu
               city={this.state.city}
               category={this.state.category}
+              brand={this.state.brand}
+              model={this.state.model}
               onCityChange={this.onCityChange.bind(this)}
               onOffreChange={this.onOffreChange.bind(this)}
-              onCategoriesChange={this.onCategoriesChange.bind(this)}/>
+              onCategoriesChange={this.onCategoriesChange.bind(this)}
+              onBrandsChange = { this.onBrandsChange.bind(this) }
+              onModelsChange = { this.onModelsChange.bind(this) }
+              onOffreChange={ this.onOffreChange.bind(this) }
+              offre= { this.state.offre }
+              />
           </div>
 
           <div className="col-xs-12 col-xs-offset-5 col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3">
-            <AnnoncesList category={this.state.category} search={{ city: this.state.city, category: this.state.category }} onInscriptionClick={ this.onInscriptionClick.bind(this) }/>
+            <AnnoncesList
+              search={{
+                city: this.state.city,
+                category: this.state.category,
+                model:this.state.model,
+                brand:this.state.brand,
+                offre:this.state.offre
+               }}
+               onInscriptionClick={ this.onInscriptionClick.bind(this) }
+               addComment={this.addComment.bind(this)}
+            />
           </div>
 
           {
             this.state.isShowingModal &&
             <ModalContainer onClose={this.handleClose.bind(this)}>
-              <ModalDialog onClose={this.handleClose.bind(this)}>
+              <ModalDialog  onClose={this.handleClose.bind(this)}>
 
                 <div className="row">
                   <div className="col-xs-6">

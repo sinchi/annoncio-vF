@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import FontAwesome from 'react-fontawesome';
 import 'rc-slider/assets/index.css';
 import Rcslider from 'rc-slider';
+
 class PriceFilter extends Component {
 
   constructor(props){
@@ -31,7 +32,6 @@ class PriceFilter extends Component {
 
   onPriceMaxInputChange(){
     const priceMax = this.refs.priceMax.value;
-
     if(priceMax && priceMax >= this.state.priceMin && priceMax <= 10000){
       this.setState({ value: [this.state.priceMin, parseInt(priceMax)] });
       this.setState({ priceMax: parseInt(priceMax) });
@@ -41,36 +41,30 @@ class PriceFilter extends Component {
   render(){
 
     const { value, parent } = this.props.category;
-    console.log("parent", parent);
-
-
     return (
+            <div className="form-group">
+              <div className="col-xs-8" style={{ margin: "5px 0 5px 0", padding:0 }}>
 
-              <div className="form-group">
-                <div className="col-xs-8" style={{ margin: "5px 0 5px 0", padding:0 }}>
+                <FontAwesome name="money" /> <label className="form-label" htmlFor='price'>Prix Min </label>  <FontAwesome name="minus-square" /> :
+                <input className="form-control" placeholder="Min" ref='priceMin' onChange={ this.onPriceMinInputChange.bind(this) } id='priceMin' type="text"  aria-label="Amount (to the nearest dollar)" />
+                <FontAwesome name="money" />  <label className="form-label" htmlFor='price'>Prix Max </label>  <FontAwesome name="plus-square" /> :
+                <input className="form-control" placeholder="Max" ref='priceMax' onChange={ this.onPriceMaxInputChange.bind(this) } id='priceMax' type="text" aria-label="Amount (to the nearest dollar)" />
 
-                  <FontAwesome name="money" /> <label className="form-label" htmlFor='price'>Prix Min </label>  <FontAwesome name="minus-square" /> :
-                  <input className="form-control" placeholder="Min" ref='priceMin' onChange={ this.onPriceMinInputChange.bind(this) } id='priceMin' type="text"  aria-label="Amount (to the nearest dollar)" />
-                  <FontAwesome name="money" />  <label className="form-label" htmlFor='price'>Prix Max </label>  <FontAwesome name="plus-square" /> :
-                  <input className="form-control" placeholder="Max" ref='priceMax' onChange={ this.onPriceMaxInputChange.bind(this) } id='priceMax' type="text" aria-label="Amount (to the nearest dollar)" />
-
-                  {/*<Rcslider
-                      id="slider"
-                      ref="slider"
-                      range={true}
-                      min={this.min}
-                      max={this.max}
-                      step={this.props.step}
-                      allowCross={false}
-                      value={ this.state.value }
-                      onChange={ this.onSliderChange.bind(this) }
-                      className="form-control"
-                      />*/}
-                </div>
+                {/*<Rcslider
+                    id="slider"
+                    ref="slider"
+                    range={true}
+                    min={this.min}
+                    max={this.max}
+                    step={this.props.step}
+                    allowCross={false}
+                    value={ this.state.value }
+                    onChange={ this.onSliderChange.bind(this) }
+                    className="form-control"
+                    />*/}
               </div>
-
-
-    )
+            </div>
+    );
   }
 }
 

@@ -1,33 +1,58 @@
 import React, { Component } from 'react';
 import Annonce from './annonce';
 import { createContainer } from 'meteor/react-meteor-data';
+import {ModalContainer, ModalDialog} from 'react-modal-dialog';
 import  FontAwesome from  'react-fontawesome';
+import  Infinite from 'react-infinite';
+import Annonces from '../../../imports/collections/annonces';
+
+
 
 class AnnoncesList extends Component {
 
-  componentWillReceiveProps(props){
-    const { city }  = props;
-    console.log(city);
+  constructor(props){
+    super(props);
+    this.state = {isInfiniteLoading: false};
   }
 
-  componentDidMount(){
-    const { city } = this.props;
-    console.log(city);
+  handleInfiniteLoad(limit){
+    console.log("Limit is " + limit);
+    //this.setState({ isInfiniteLoading: this.props.loading });
+    // const { search } = this.props;
+    // const subscription = Meteor.subscribe('annonces', {"city.value": search.city.value, "category.value": search.category.value});
+    // const loading = !subscription.ready();
+    // this.setState({ isInfiniteLoading: loading });
   }
 
-  componentWillUnmount(){
-    console.log("unmount");
+  elementInfiniteLoad(){
+    return (<span><FontAwesome name="spinner" size='3x' spin style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}/>Chargement en cours...</span>);
+  }
+
+  handleClose(event){
+    if(event)
+    event.preventDefault();
+    this.setState({isShowingModal: false})
   }
 
   render(){
 
-    const Annonces =  this.props.loading ? <FontAwesome name="spinner" size='2x'
-        spin
-        style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}/> :
+    let Annonces = this.props.loading ? (
+      <ModalContainer>
+        <ModalDialog>
+          <FontAwesome name="spinner" size='3x' spin pulse style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}/>
+        </ModalDialog>
+      </ModalContainer>
+    ) :
        this.props.annonces.map((annonce => {
-        return <Annonce key={ annonce._id } annonce = { annonce } onInscriptionClick={ this.props.onInscriptionClick }/>
+        return (
+                <Annonce
+                  key={ annonce._id }
+                  annonce = { annonce }
+                  onInscriptionClick={ this.props.onInscriptionClick }
+                  addComment={ this.props.addComment }
+                />
+            );
       }));
-
 
     return(
       <div>
@@ -38,10 +63,27 @@ class AnnoncesList extends Component {
 }
 
 export default createContainer((props) => {
-  const {search} = props;
-  console.log(search);
-  const subscription = Meteor.subscribe('annonces', {"city.value": search.city.value, "category.value": search.category.value});
-  //Meteor.subscribe('annonces', {});
+  const { category, city, model, brand } = props.search;
+  let query = {};
+  if(category){
+    if(category.value && !category.parent){
+        query = Object.assign({}, query, { "category.parent" : category.value });
+    }else{
+       query = Object.assign({}, query, { "category.value" : category.value });
+    }
+  }
+  if(city){
+    query = Object.assign({}, query, { "city.value": city.value });
+  }
+  if(model || brand){
+    if(model){
+      query = Object.assign({}, query, { "model.value": model.value });
+    }else{
+      query = Object.assign({}, query, { "brand.value": brand.value });
+    }
+  }
+  console.log(query);
+  const subscription = Meteor.subscribe('annonces', query, 5);
   const comments = [
     {
       _id:1,
@@ -141,10 +183,7 @@ export default createContainer((props) => {
       comments:comments
     }
   ]
-  //let city = (this.state.city && this.state.city.value) ? this.state.city.value;
 
-  console.log(props);
-  console.log("subscribe " + props.city);
   return {
     annonces: Annonces.find({}, { sort: { createdAt: -1 } }).fetch(),
     loading: !subscription.ready()

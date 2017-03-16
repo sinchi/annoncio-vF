@@ -6,7 +6,13 @@ const SideMenu = (props) => {
     city,
     onCityChange,
     category,
-    onCategoriesChange
+    brand,
+    model,
+    offre,
+    onOffreChange,
+    onCategoriesChange,
+    onBrandsChange,
+    onModelsChange
   } = props;
   return(
       <div>
@@ -14,7 +20,11 @@ const SideMenu = (props) => {
           city={city}
           onCityChange={onCityChange}
           category={category}
+          brand={brand}
+          model={model}
           onCategoriesChange={onCategoriesChange}
+          onModelsChange={onModelsChange}
+          onBrandsChange={onBrandsChange}
           offre={props.offre}
           onOffreChange={props.onOffreChange}
           />

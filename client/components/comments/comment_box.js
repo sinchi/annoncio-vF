@@ -4,8 +4,19 @@ class CommentBox extends Component {
 
   onCommentClick(event){
     event.preventDefault();
-    console.log("Comment");
-    console.log(Meteor.userId());
+    const content = this.refs.content.value;
+    if(content.trim() !== ""){
+      const comment = {
+        image: "http://arswiki.info/twiki/pub/Main/UserProfileHeader/default-user-profile.jpg",
+        username: Meteor.user().emails[0].address.split('@')[0],
+        createdAt: new Date(),
+        content: content,
+        owner: Meteor.userId(),
+        annonceId: this.props.annonceId
+      };
+      this.props.addComment(comment);
+      this.refs.content.value = "";
+    }
   }
 
   render(){
@@ -17,7 +28,7 @@ class CommentBox extends Component {
     return(
       <form onSubmit={  (!Meteor.userId()) ? this.props.onInscriptionClick : this.onCommentClick.bind(this)   }>
         <div className="form-group">
-          <textarea className="form-control"></textarea>
+          <textarea ref="content" className="form-control"></textarea>
         </div>
         <button style={style} className="btn btn-default " onClick={  (!Meteor.userId()) ? this.props.onInscriptionClick : this.onCommentClick.bind(this)   }>Commenter</button>
       </form>

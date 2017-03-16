@@ -16,8 +16,13 @@ class SearchFilter extends Component {
     const radiosImmobilier = ["Tout", "Offre", "Demande", "Offre de location", "Demande de location"];
     const radiosAll = ["Tout", "Offre", "Demande"];
     const {
-      onOffreChange,
       city,
+      brand,
+      model,
+      offre,
+      onOffreChange,
+      onModelsChange,
+      onBrandsChange,
       onCityChange,
       onCategoriesChange,
       category
@@ -30,12 +35,19 @@ class SearchFilter extends Component {
               <CitiesCombo onCityChange={ onCityChange } val={ city }/>
             </div>
             <div className="form-group category">
-              <CategoriesCombo onCategoriesChange={ onCategoriesChange } val={ category }/>
+              <CategoriesCombo
+                onCategoriesChange={ onCategoriesChange }
+                val={ category }
+                brand={brand}
+                onBrandsChange={onBrandsChange}
+                model={model}
+                onModelsChange={onModelsChange}
+                />
             </div>
             {
               (category && category.parent !== "EMPLOI ET SERVICES" && category.value !== "EMPLOI ET SERVICES") && (
                 <div className="form-group">
-                  <TypeOffreFilter onOffreChange={onOffreChange} radios={(category.value === "IMMOBILIER" || category.parent==="IMMOBILIER") ? radiosImmobilier : radiosAll}/>
+                  <TypeOffreFilter offre={offre} onOffreChange={onOffreChange} radios={(category.value === "IMMOBILIER" || category.parent==="IMMOBILIER") ? radiosImmobilier : radiosAll}/>
                   <PriceFilter min={500} max={100000} step={100}  category={category } />
                 </div>
               )

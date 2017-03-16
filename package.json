@@ -25,6 +25,7 @@
     "react-image": "^0.1.0",
     "react-image-file": "^0.1.0",
     "react-image-slider": "0.0.6",
+    "react-infinite": "^0.10.0",
     "react-meteor-data": "^0.2.9",
     "react-modal-dialog": "^3.0.2",
     "react-popup": "^0.4.2",

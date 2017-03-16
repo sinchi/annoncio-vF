@@ -16,7 +16,11 @@ class Annonce extends Component {
             <AnnoncesFooter annonce={ annonce } onInscriptionClick={ this.props.onInscriptionClick }/>
           </div>
           <div className="col-sm-12 col-sm-12 col-md-5">
-            <CommentsMain annonce={ annonce } onInscriptionClick={ this.props.onInscriptionClick }/>
+            <CommentsMain
+              annonce={ annonce }
+              onInscriptionClick={ this.props.onInscriptionClick }
+              addComment={this.props.addComment}
+              />
           </div>
         </div>
 

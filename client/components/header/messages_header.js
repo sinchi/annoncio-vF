@@ -11,12 +11,12 @@ class MessagesHeader extends Component {
           <ul className="dropdown-menu">
             <li>
                 <a href="#" onClick={ this.props.onLogoutClick }>
-                  <span className="glyphicon glyphicon-cog"></span> Mon Compte
+                  <FontAwesome name="envelope"/> Nouveau message
                 </a>
             </li>
             <li>
                 <a href="#" onClick={ this.props.onLogoutClick }>
-                  <span className="glyphicon glyphicon-off"></span> Déconnexion
+                  <FontAwesome  name="navicon" /> Voir tous les messages
                 </a>
             </li>
           </ul>

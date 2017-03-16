@@ -4,6 +4,8 @@ import { Categories } from '../imports/collections/categories';
 import { Users } from '../imports/collections/users';
 import { Brands } from '../imports/collections/brands';
 import { Annonces } from '../imports/collections/annonces';
+import { Comments } from '../imports/collections/comments';
+import { Notifications } from '../imports/collections/notifications'; 
 import _ from 'lodash';
 import { address } from 'faker';
 //import {Cloudinary} from 'cloudinary';
