@@ -15,12 +15,20 @@ class CommentsMain extends Component{
       width: "70%"
     }
 
-  const commentBox = (Meteor.userId()) ? <CommentBox addComment={this.props.addComment} annonceId= { this.props.annonce._id } onInscriptionClick={ this.props.onInscriptionClick } /> : '';
+  const commentBox = (Meteor.userId()) ? (  <CommentBox
+                                            addComment={this.props.addComment}
+                                            annonceId= { this.props.annonce._id }
+                                            onInscriptionClick={ this.props.onInscriptionClick }
+                                            />
+                                        ) : '';
 
     return(
         <div>
           <h3 style={{ margin: "10px" , color:"blue", fontWeight: "bold"}}>{this.props.annonce.price} DH</h3>
-          <CommentsList comments={ this.props.comments } />
+          <CommentsList
+            loading={this.props.loading}
+            comments={ this.props.comments }
+          />
           { commentBox }
         </div>
     )

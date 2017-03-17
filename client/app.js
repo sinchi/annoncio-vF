@@ -6,6 +6,8 @@ import Header from './components/header/header';
 import SignupForm from './components/authentication/signup_form';
 import LoginForm from './components/authentication/login_form';
 
+import ChatBox from './components/chat/chat_box';
+
 class App extends Component {
 
   constructor(props){
@@ -103,6 +105,7 @@ class App extends Component {
             </ModalDialog>
           </ModalContainer>
         }
+        <ChatBox />
       </div>
     )
   }

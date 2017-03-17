@@ -22,7 +22,7 @@ class Comment extends Component {
             <div className="media-body">
               <h5 className="media-heading"><a href="#">{ username }</a> <span style={{ color:"rgb(39,180,189)" }} className="glyphicon glyphicon-flash" aria-hidden="true"></span></h5>
              {`${moment(createdAt).toNow(true)}`} <span className="glyphicon glyphicon-globe" aria-hidden="true"></span>
-              <p className="comment_text">
+              <p>
                 <strong>{content}</strong>
               </p>
             </div>
