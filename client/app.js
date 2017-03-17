@@ -105,7 +105,12 @@ class App extends Component {
             </ModalDialog>
           </ModalContainer>
         }
-        <ChatBox />
+        <ChatBox offset={"col-md-offset-10"} right={"0px"} title={"Ayoub Sinchi"}/>
+        <ChatBox offset={"col-md-offset-10"} right={"240px"} title={"Moaad Bahbohi"}/>
+        <ChatBox offset={"col-md-offset-10"} right={"480px"} title={"Driss Namlozi"}/>
+        <ChatBox offset={"col-md-offset-10"} right={"720px"} title={"Amine Fahfoti"}/>
+        <ChatBox offset={"col-md-offset-10"} right={"960px"} title={"Karim Sendouli"}/>
+
       </div>
     )
   }

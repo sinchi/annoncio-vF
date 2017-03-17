@@ -11,7 +11,7 @@ if(Meteor.isServer){
      if(limit > 5 || limit < 5) {
         limit = 5;
      }
-     console.log(search);
+     
      return Annonces.find(search, { sort: { createdAt: -1 }, limit: limit });
   });
 
