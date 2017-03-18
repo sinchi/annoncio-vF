@@ -82,6 +82,8 @@ class AnnoncesPage extends Component {
     console.log(comment);
   }
 
+
+
   render(){
     return(
         <div className="container" style={{ marginTop:"90px" }}>
@@ -112,9 +114,9 @@ class AnnoncesPage extends Component {
                }}
                onInscriptionClick={ this.onInscriptionClick.bind(this) }
                addComment={this.addComment.bind(this)}
+               openChatBox={this.props.openChatBox}              
             />
           </div>
-
           {
             this.state.isShowingModal &&
             <ModalContainer onClose={this.handleClose.bind(this)}>

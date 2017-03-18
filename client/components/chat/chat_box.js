@@ -4,39 +4,31 @@ class ChatBox extends Component{
 
   constructor(props){
     super(props);
-    this.state = { style: {}, open: false };
+    this.state = { open: true };
   }
 
   componentDidMount(){
-    const height = this.state.open ? "300px" : "40px";
-    const style = {
-     "position":"fixed",
-     "bottom":"0",
-     "right": this.props.right,
-     "height": height
-   };
-   this.setState({ style: style, open: !this.state.open });
+    this.showChatBox();
   }
 
-  openChatBox(){
+  showChatBox(){
     const height = this.state.open ? "300px" : "40px";
-    const style = {
-     "position":"fixed",
-     "bottom":"0",
-     "right": this.props.right,
-     "height": height
-   };
-   this.setState({ style: style, open: !this.state.open });
+    this.setState({ height: height, open: !this.state.open });
   }
-
 
   render(){
 
+    const style = {
+      "position":"fixed",
+      "bottom":"0",
+      "height": this.state.height,
+      "right": this.props.right
+    };
     return (
-      <div ref="chatBox" className="col-md-12" style={this.state.style}>
-        <div className={this.props.offset}>
+      <div ref="chatBox" className="col-md-12" style={style}>
+        <div className={"col-md-offset-10"}>
           <div className="panel panel-default" >
-            <div className="panel-heading" onClick={ this.openChatBox.bind(this) }>
+            <div className="panel-heading" onClick={ this.showChatBox.bind(this) }>
               <h3 className="panel-title">{this.props.title} </h3>
             </div>
             <div className="panel-body" style={{ "height": "200px" }}>

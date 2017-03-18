@@ -50,6 +50,7 @@ class AnnoncesList extends Component {
                   annonce = { annonce }
                   onInscriptionClick={ this.props.onInscriptionClick }
                   addComment={ this.props.addComment }
+                  openChatBox={this.props.openChatBox}
                 />
             );
       }));
@@ -81,8 +82,7 @@ export default createContainer((props) => {
     }else{
       query = Object.assign({}, query, { "brand.value": brand.value });
     }
-  }
-  console.log(query);
+  }  
   const subscription = Meteor.subscribe('annonces', query, 5);
   const comments = [
     {

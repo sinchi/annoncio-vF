@@ -1,18 +1,18 @@
-import React, {Component} from 'react';
+import React, {Component, Children, cloneElement} from 'react';
 import {ModalContainer, ModalDialog} from 'react-modal-dialog';
 import { browserHistory } from 'react-router';
 import Header from './components/header/header';
+import _ from 'underscore';
 
 import SignupForm from './components/authentication/signup_form';
 import LoginForm from './components/authentication/login_form';
-
 import ChatBox from './components/chat/chat_box';
 
 class App extends Component {
 
   constructor(props){
     super(props);
-    this.state = { isShowingModal: false };
+    this.state = { isShowingModal: false , annoncesChat:[]};
   }
 
   handleClick(){
@@ -79,12 +79,41 @@ class App extends Component {
 
   }
 
+
+
+  openChatBox(annonce){
+
+    if(!_.contains(_.pluck(this.state.annoncesChat, '_id'), annonce._id)){
+
+        if(this.state.annoncesChat.length > 3){
+           let newAnnonces = this.state.annoncesChat;
+            newAnnonces.pop();
+            this.setState({  annoncesChat: newAnnonces});
+        }else{
+          let newAnnonces = this.state.annoncesChat;
+          newAnnonces.push(annonce);
+          this.setState({  annoncesChat: newAnnonces});
+        }
+
+    }
+
+  }
+
+
   render(){
+    let ChatBoxs = this.state.annoncesChat.length > 0 ? this.state.annoncesChat.map((chat, i) => {
+          return (<ChatBox
+                        key={chat._id}
+                        right={`${ i * 240 }px`}
+                        title={`${chat.title}`}
+                        />);
+        }) : "";
+    const children = cloneElement(this.props.children, { openChatBox: this.openChatBox.bind(this) });
 
     return(
-      <div className="row">
+      <div className="container">
         <Header onInscriptionClick={ this.onInscriptionClick.bind(this) }/>
-        { this.props.children }
+        { children }
         {
           this.state.isShowingModal &&
           <ModalContainer onClose={this.handleClose.bind(this)}>
@@ -105,12 +134,7 @@ class App extends Component {
             </ModalDialog>
           </ModalContainer>
         }
-        <ChatBox offset={"col-md-offset-10"} right={"0px"} title={"Ayoub Sinchi"}/>
-        <ChatBox offset={"col-md-offset-10"} right={"240px"} title={"Moaad Bahbohi"}/>
-        <ChatBox offset={"col-md-offset-10"} right={"480px"} title={"Driss Namlozi"}/>
-        <ChatBox offset={"col-md-offset-10"} right={"720px"} title={"Amine Fahfoti"}/>
-        <ChatBox offset={"col-md-offset-10"} right={"960px"} title={"Karim Sendouli"}/>
-
+        { ChatBoxs }
       </div>
     )
   }
