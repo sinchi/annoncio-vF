@@ -6,12 +6,12 @@ export default Annonces = new Mongo.Collection('annonces');
 
 if(Meteor.isServer){
   Meteor.publish('annonces', function allAnnonces(search, limit){
-     check(search, Object);
+     check(search, Object );
      check(limit, Number);
      if(limit > 5 || limit < 5) {
         limit = 5;
      }
-     
+
      return Annonces.find(search, { sort: { createdAt: -1 }, limit: limit });
   });
 

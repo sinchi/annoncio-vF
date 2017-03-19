@@ -84,35 +84,47 @@ class App extends Component {
   openChatBox(annonce){
 
     if(!_.contains(_.pluck(this.state.annoncesChat, '_id'), annonce._id)){
-
-        if(this.state.annoncesChat.length > 3){
-           let newAnnonces = this.state.annoncesChat;
-            newAnnonces.pop();
-            this.setState({  annoncesChat: newAnnonces});
-        }else{
-          let newAnnonces = this.state.annoncesChat;
-          newAnnonces.push(annonce);
-          this.setState({  annoncesChat: newAnnonces});
-        }
-
+      let newAnnonces = this.state.annoncesChat;     
+     if(this.state.annoncesChat.length <= 3){       
+        newAnnonces.push(annonce);
+        this.setState({  annoncesChat: newAnnonces});         
+     }else{            
+        newAnnonces.shift();
+        newAnnonces.push(annonce);
+        this.setState({  annoncesChat: newAnnonces});       
+     }
     }
 
   }
 
+  sendChatMessage(message){
+    console.log(message);
+  }
+
+  closeChatBox(i){
+    let newAnnonces = this.state.annoncesChat;
+    newAnnonces.shift(i);
+    this.setState({ annoncesChat: newAnnonces });
+  }
 
   render(){
     let ChatBoxs = this.state.annoncesChat.length > 0 ? this.state.annoncesChat.map((chat, i) => {
           return (<ChatBox
                         key={chat._id}
-                        right={`${ i * 240 }px`}
+                        right={`${ i * 300 }px`}
                         title={`${chat.title}`}
+                        sendChatMessage={this.sendChatMessage.bind(this)}
+                        closeChatBox={this.closeChatBox.bind(this)}
+                        chat={chat}
+                        focus={ i === (this.state.annoncesChat.length - 1) ? true : false }
                         />);
         }) : "";
     const children = cloneElement(this.props.children, { openChatBox: this.openChatBox.bind(this) });
 
     return(
-      <div className="container">
+      <div>
         <Header onInscriptionClick={ this.onInscriptionClick.bind(this) }/>
+        { ChatBoxs }
         { children }
         {
           this.state.isShowingModal &&
@@ -134,7 +146,7 @@ class App extends Component {
             </ModalDialog>
           </ModalContainer>
         }
-        { ChatBoxs }
+
       </div>
     )
   }
