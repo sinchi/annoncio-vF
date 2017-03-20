@@ -13,7 +13,11 @@ class Annonce extends Component {
           <div className="col-sm-12 col-sm-12 col-md-7">
             <AnnoncesHeader annonce={ annonce } onInscriptionClick={ this.props.onInscriptionClick }/>
             <AnnoncesCarousel annonce={ annonce }/>
-            <AnnoncesFooter annonce={ annonce } onInscriptionClick={ this.props.onInscriptionClick } openChatBox={this.props.openChatBox}/>
+            <AnnoncesFooter 
+                          annonce={ annonce } 
+                          onInscriptionClick={ this.props.onInscriptionClick } 
+                          openChatBox={this.props.openChatBox}
+                          showPopupForChatMessage={this.props.showPopupForChatMessage} />
           </div>
           <div className="col-sm-12 col-sm-12 col-md-5">
             <CommentsMain

@@ -1,10 +1,7 @@
 import React , { Component } from 'react';
 import moment from 'moment';
 
-class Comment extends Component {
-  componentWillMount(){
-
-  }
+class Comment extends Component {  
 
   render(){
     const { image, username, createdAt, content } = this.props.comment;

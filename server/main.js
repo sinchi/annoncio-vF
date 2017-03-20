@@ -6,6 +6,8 @@ import { Brands } from '../imports/collections/brands';
 import { Annonces } from '../imports/collections/annonces';
 import { Comments } from '../imports/collections/comments';
 import { Notifications } from '../imports/collections/notifications'; 
+import { Conversations } from '../imports/collections/conversations'; 
+import { Messages } from '../imports/collections/messages'; 
 import _ from 'lodash';
 import { address } from 'faker';
 //import {Cloudinary} from 'cloudinary';

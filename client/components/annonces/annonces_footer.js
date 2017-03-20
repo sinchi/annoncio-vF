@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
+import {ModalContainer, ModalDialog} from 'react-modal-dialog';
 
 class AnnoncesFooter extends Component{
+
+  constructor(props){
+    super(props);    
+  }  
 
   onDetailClick(event){
     const { _id } = this.props.annonce;
@@ -11,13 +16,15 @@ class AnnoncesFooter extends Component{
       document.querySelector(`#hidden-detail${_id}`).style.display = "block";
   }
 
-  onMessageClick(event){    
-    this.props.openChatBox(this.props.annonce);
+  onMessageClick(){         
+    this.props.showPopupForChatMessage(this.props.annonce);
   }
+
 
   onCallClick(event){
     console.log("Appler click");
   }
+  
 
   render(){
     const { _id } = this.props.annonce;
@@ -81,7 +88,7 @@ class AnnoncesFooter extends Component{
             )
           }
           <button onClick={this.onDetailClick.bind(this)} className="nav-btn btn btn-default pull-right">Detail</button>
-        </div>
+        </div>        
       </div>
     )
   }

@@ -4,7 +4,7 @@ import { createContainer } from 'meteor/react-meteor-data';
 import {ModalContainer, ModalDialog} from 'react-modal-dialog';
 import  FontAwesome from  'react-fontawesome';
 import  Infinite from 'react-infinite';
-import Annonces from '../../../imports/collections/annonces';
+import {Annonces} from '../../../imports/collections/annonces';
 
 
 
@@ -51,6 +51,7 @@ class AnnoncesList extends Component {
                   onInscriptionClick={ this.props.onInscriptionClick }
                   addComment={ this.props.addComment }
                   openChatBox={this.props.openChatBox}
+                  showPopupForChatMessage={this.props.showPopupForChatMessage}
                 />
             );
       }));

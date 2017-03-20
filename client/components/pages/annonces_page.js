@@ -114,7 +114,8 @@ class AnnoncesPage extends Component {
                }}
                onInscriptionClick={ this.onInscriptionClick.bind(this) }
                addComment={this.addComment.bind(this)}
-               openChatBox={this.props.openChatBox}              
+               openChatBox={this.props.openChatBox}   
+               showPopupForChatMessage={this.props.showPopupForChatMessage}           
             />
           </div>
           {

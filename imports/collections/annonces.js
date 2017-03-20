@@ -2,7 +2,7 @@ import { Mongo } from 'meteor/mongo';
 import { Meteor } from 'meteor/meteor';
 import { check } from 'meteor/check';
 
-export default Annonces = new Mongo.Collection('annonces');
+export const Annonces = new Mongo.Collection('annonces');
 
 if(Meteor.isServer){
   Meteor.publish('annonces', function allAnnonces(search, limit){
@@ -17,6 +17,11 @@ if(Meteor.isServer){
 
   Meteor.publish('annoncesOwner', function getAnnoncesOwner(){
     return Annonces.find({ 'owner.id': this.userId })
+  });
+
+  Meteor.publish('get_annonce_by_conversation_id', function(conversationId){
+    check(conversationId, String);
+    return Annonces.findOne({ conversationId: conversationId });
   });
 
 }

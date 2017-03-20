@@ -1,7 +1,9 @@
 import React , { Component } from 'react';
-import { createContainer } from 'meteor/react-meteor-data';
+import { Meteor } from 'meteor/meteor';
 import  FontAwesome from  'react-fontawesome';
 import MessagesList from '../messages/messages_list';
+
+
 
 class ChatBox extends Component{
 
@@ -16,7 +18,7 @@ class ChatBox extends Component{
 
   toggleChatBox(){
     const height = this.state.open ? "400px" : "40px";
-    this.setState({ height: height, open: !this.state.open });
+    this.setState({ height: height, open: !this.state.open });     
   }
 
   onKeyPressSendChatMessage(event){
@@ -33,26 +35,18 @@ class ChatBox extends Component{
   }
 
   sendIt(body){
-    const message = {
-        conversationId: 1,
-        from : {
-          userId: Meteor.userId()          
-        }, 
-        to : {
-          userId: this.props.chat.owner.id,
-          read: false
-        },        
-        body: body,
-        createdAt: new Date()
-      };
-
-      this.props.sendChatMessage(message);
-      this.refs.message.value = "";
-      this.refs.message.focus();
-    }
+    const { conversation } = this.props;
+    const that = this;
+      Meteor.call("messages.insert",body ,conversation, function(err){
+        if(!err){
+          that.refs.message.value = "";
+          that.refs.message.focus();         
+        }
+      });
+  }
 
     closeChatBox(){
-      this.props.closeChatBox(this.props.chat._id);
+      this.props.closeChatBox(this.props.position);
     }
   
 
@@ -78,7 +72,7 @@ class ChatBox extends Component{
         	<div className="panel panel-default">
                 <div className="panel-heading" style={topBarStyle}>
                     <div className="col-md-8 col-xs-8" onClick={ this.toggleChatBox.bind(this) }>
-                        <h3 className="panel-title"><span className="glyphicon glyphicon-comment"></span> {this.props.title}</h3>
+                        <h5 className="panel-title"><FontAwesome name="comment" /> {this.props.conversation.annonce.title} <span className="badge">{ this.props.conversation.annonce.price }DH</span></h5>
                     </div>
                     <div className="col-md-4 col-xs-4" style={{ "textAlign": "right" }}>
                         <a onClick={ this.toggleChatBox.bind(this) } className="btn btn-sm"><span id="minim_chat_window" className="glyphicon glyphicon-minus icon_minim"></span></a>
@@ -86,7 +80,7 @@ class ChatBox extends Component{
                     </div>
                 </div>
 
-                <MessagesList messages={this.props.messages} />
+                <MessagesList conversationId={ this.props.conversation._id } />
 
                 <div className="panel-footer">
                     <div className="input-group">
@@ -103,38 +97,4 @@ class ChatBox extends Component{
   }
 }
 
-export default createContainer((props) => {
-  const messages = [
-    {
-      _id: 1,
-      type: "sent",
-      body: "Salam Cava",
-      createdAt: new Date(),
-      img:"http://www.bitrebels.com/wp-content/uploads/2011/02/Original-Facebook-Geek-Profile-Avatar-1.jpg"
-    },
-    {
-      _id: 2,
-      type: "receive",
-      body: "Oui hamdollah et toi ?",
-      createdAt: new Date(),
-      img:"http://www.bitrebels.com/wp-content/uploads/2011/02/Original-Facebook-Geek-Profile-Avatar-1.jpg"
-    },
-    {
-      _id: 3,
-      type: "sent",
-      body: "Cava",
-      createdAt: new Date(),
-      img:"http://www.bitrebels.com/wp-content/uploads/2011/02/Original-Facebook-Geek-Profile-Avatar-1.jpg"
-    },
-    {
-      _id: 4,
-      type: "receive",
-      body: "dernier prix ?",
-      createdAt: new Date(),
-      img:"http://www.bitrebels.com/wp-content/uploads/2011/02/Original-Facebook-Geek-Profile-Avatar-1.jpg"
-    }
-  ];
-  return {
-    messages: messages
-  }
-}, ChatBox);
+export default ChatBox;
