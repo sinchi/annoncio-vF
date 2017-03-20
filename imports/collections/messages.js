@@ -11,8 +11,20 @@ if(Meteor.isServer){
 	 	return Messages.find( { conversationId: conversationId } , { sort: { createdAt: -1 }, limit: 5 });
 	});
 
-	 Meteor.publish('last_message', function(annonceId){
-	 	return Messages.find({ annonceId: annonceId }, { sort: { createdAt: -1 }, limit: 1 });
+	 Meteor.publish('last_message', function(conversationId){
+	 	return Messages.find({
+	 		$and:[
+	 			{
+	 				$or:[
+	 					{ "from.userId": this.userId },
+	 					{ "to.userId" : this.userId }
+	 				]
+	 			},
+	 			{
+	 				conversationId: conversationId 
+	 			}
+	 		]
+	 	}, { sort: { createdAt: -1 }, limit: 1 });
 	 });
 }
 
@@ -91,9 +103,18 @@ Meteor.methods({
 
 	'messages.insert'(messageBody, conversation){
 		check(messageBody, String);
-		check(conversation, Object);
+		check(conversation, Object);		 
 
-		
+	      let toUserId = "";
+	      let username = "";
+	      if(conversation.annonce.owner.id === Meteor.userId()){
+	      	toUserId = conversation.originatingFromId;
+	      	username = conversation.originatingFromName;
+	      }else{
+	      	toUserId = conversation.originatingToId;
+	      	username = conversation.originatingToName;
+	      }
+			
 		const message = {
 			conversationId: conversation._id,
 			from: {
@@ -101,9 +122,9 @@ Meteor.methods({
 				username : Meteor.users.findOne(Meteor.userId()).emails[0].address.split('@')[0]
 			  },
 			to: {
-				userId: conversation.annonce.owner.id,
+				userId: toUserId,
 				read: false,
-				username: conversation.annonce.owner.email.split('@')[0]
+				username: username
 			},
 			body: messageBody,
 			createdAt: new Date()			

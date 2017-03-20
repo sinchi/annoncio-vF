@@ -21,14 +21,10 @@ if(Meteor.isServer){
 	  return {
 		    find: function(){
 		      return Conversations.find({
-		      	$and:[
-		      		{
-		      			$or:[
+		      	$or:[
 		      				{ originatingFromId: this.userId }, 
 		      				{ originatingToId: this.userId }
-		      			]
-		      		}
-		      	]
+		      		]
 		      });
 		    },
 		    children:[

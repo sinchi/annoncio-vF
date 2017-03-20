@@ -5,13 +5,15 @@ import { Conversations } from '../../../imports/collections/conversations';
 import { Messages } from '../../../imports/collections/messages';
 import MessageHeaderItem from './message_header_item';
 import {Annonces} from '../../../imports/collections/annonces';
+import _ from 'underscore';
 
 
 class MessagesHeader extends Component {
   render(){
-
-    const Messages = this.props.messages.length > 0 ? this.props.messages.map((message) => {          
-      return <MessageHeaderItem message={message} key={message._id} />
+    const { conversations, messages } = this.props;
+    const Messages = conversations.length > 0 ? conversations.map((conversation) => { 
+      const lastMessage = _.filter(messages, (message) => message.conversationId === conversation._id)[0];      
+      return <MessageHeaderItem lastMessage={lastMessage} conversation={conversation} key={conversation._id} />
     }) : "";
  
     return(
@@ -27,13 +29,18 @@ class MessagesHeader extends Component {
   }
 }
 
-export default createContainer((props) => {
+export default createContainer(() => {
 
    const subscription = Meteor.subscribe('conversations.last_message');    
 
-  return {
-    messages : Messages.find({}, { sort: { createdAt: -1 } }).fetch(),
-    conversations: Conversations.find({}).fetch(),    
+  return {    
+    conversations: Conversations.find({
+      $or:[
+        { originatingFromId: Meteor.userId() },
+        { originatingToId: Meteor.userId() }
+      ]
+    }).fetch(),    
+    messages: Messages.find().fetch(),
     loading: !subscription.ready()
   }
 

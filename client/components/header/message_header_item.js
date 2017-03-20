@@ -1,18 +1,16 @@
 import React, { Component } from 'react';
-import { createContainer } from 'react-meteor-data';
-import { Messages } from '../../../imports/collections/messages';
 import FontAwesome from 'react-fontawesome';
 
 
 class MessageHeaderItem extends Component {
   render(){
-    const { message, annonce } = this.props ;   
-    const username = Meteor.userId() === message.from.userId ? `to ${message.to.username}` : `from ${message.from.username}`;
+    const { lastMessage, conversation } = this.props ;   
+    //const username = lastMessage.from.userId === Meteor.userId() ? "To " + lastMessage.to.username : "from " + lastMessage.from.username;    
     return (
      
-           <li key={this.props.message._id}>
+           <li key={lastMessage._id}>
               <a href="#">
-                <FontAwesome name="envelope" /> <a href="#">{username}</a> {message.body}
+                <FontAwesome name="envelope" /> <a href="#">{"username"}</a> {lastMessage.body}
               </a>
           </li>
         )
