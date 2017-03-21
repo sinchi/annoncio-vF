@@ -4,6 +4,9 @@
   "scripts": {
     "start": "meteor run"
   },
+  "engines": {
+    "node": "5.9.1"
+  },
   "dependencies": {
     "blueimp-file-upload": "^9.14.2",
     "classnames": "^2.2.5",
