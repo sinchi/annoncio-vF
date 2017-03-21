@@ -3,6 +3,11 @@ import moment from 'moment';
 
 class Comment extends Component {  
 
+   componentDidMount(){
+    //$("#"+this.props.comment.annonceId).scrollTop($("#"+this.props.comment.annonceId)[0].scrollHeight);
+  }
+
+
   render(){
     const { image, username, createdAt, content } = this.props.comment;
      moment.locale('fr');

@@ -21,7 +21,7 @@ class CommentsList extends Component {
     });
 
     return(
-      <div className="list-group comment_container_base" style={style}>
+      <div className="list-group comment_container_base" style={style} id={this.props.id}>
           { Comments }
       </div>
     )

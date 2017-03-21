@@ -28,6 +28,7 @@ class CommentsMain extends Component{
           <CommentsList
             loading={this.props.loading}
             comments={ this.props.comments }
+            id={this.props.annonce._id}
           />
           { commentBox }
         </div>

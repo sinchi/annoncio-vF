@@ -7,14 +7,17 @@ class AnnoncesCarousel extends Component {
     const { title, images, _id  } = this.props.annonce;
     const { items, description } = images;
     const idCarousel = `#carousel-${_id}`;
-
+    const style = {
+      width: "544px",
+      height: "307px"
+    };
 
     const Items = items.length > 0 ? items.map(item => {
       const { img, alt, caption, active } = item;
       const className = `item ${active}`;
       return (
         <div key={alt} className={className}>
-          <img src={img} alt={alt} width={"544px"} height={"307px"}/>
+          <img src={img} alt={alt} style={style}/>
           <div className="carousel-caption">
             {caption}
           </div>
