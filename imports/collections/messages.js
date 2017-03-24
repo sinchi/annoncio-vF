@@ -58,7 +58,17 @@ Meteor.methods({
 				originatingToId: annonce.owner.id,
 				originatingFromName: Meteor.users.findOne(Meteor.userId()).emails[0].address.split('@')[0],
 				originatingToName: annonce.owner.email.split('@')[0],
-				annonce: annonce				
+				annonce: annonce,
+				statusFrom: {
+					visible: true,
+					stand: true,
+					userId: Meteor.userId()
+				},
+				statusTo:{
+					visible: true,
+					stand: true,
+					userId: annonce.owner.id
+				}		
 			};
 			const conversationId = Conversations.insert(conversation);
 			const message = {

@@ -60,5 +60,42 @@ Meteor.methods({
 		}else{
 			throw new Meteor.Error('Vous devez connecter pour faire une discussion');
 		}
+	},
+
+	'conversations.setVisible'(visible, conversationId){
+		check(conversationId, String);
+		check(visible, Boolean);	
+
+		if(!Meteor.userId())	{
+			throw new Meteor.Error('vous devez etre connecter pour faire ce changement ');
+		}
+
+		let conversation = Conversations.findOne(conversationId);	
+
+
+		if(conversation.originatingFromId === Meteor.userId()){
+			return Conversations.update({ _id: conversationId, "statusFrom.userId": Meteor.userId() }, {$set:{ "statusFrom.visible": visible }});	
+		}else{
+			return Conversations.update({ _id: conversationId, "statusTo.userId": conversation.originatingToId }, {$set:{ "statusTo.visible": visible }});	
+		}				 
+		
+	},
+
+	'conversations.setStand'(stand, conversationId){
+		check(conversationId, String);
+		check(stand, Boolean);	
+
+		if(!Meteor.userId())	{
+			throw new Meteor.Error('vous devez etre connecter pour faire ce changement ');
+		}
+
+		const conversation = Conversations.findOne(conversationId);
+
+		if(conversation.originatingFromId === Meteor.userId()){
+			return Conversations.update({ _id: conversationId, "statusFrom.userId": Meteor.userId() }, $set:{ "statusFrom.stand": stand });	
+		}else{
+			return Conversations.update({ _id: conversationId, "statusTo.userId": conversation.originatingToId }, $set:{ "statusTo.stand": stand });	
+		}		
+		
 	}
 });

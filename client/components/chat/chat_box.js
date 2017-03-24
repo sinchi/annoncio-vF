@@ -9,7 +9,16 @@ class ChatBox extends Component{
 
   constructor(props){
     super(props);
-    this.state = { open: true };
+    this.state = { visible: true };
+  }
+
+  componentWillReceiveProps(props){
+    const { conversation } = props;    
+    if(conversation.statusFrom.userId === Meteor.userId()){
+      this.setState({ visible: conversation.statusFrom.visible });
+    }else{
+      this.setState({ visible: conversation.statusTo.visible });
+    }
   }
 
   componentDidMount(){
@@ -17,8 +26,8 @@ class ChatBox extends Component{
   }
 
   toggleChatBox(){
-    const height = this.state.open ? "400px" : "40px";
-    this.setState({ height: height, open: !this.state.open });     
+    const height = this.state.visible ? "400px" : "40px";
+    this.setState({ height: height, visible: !this.state.visible });     
   }
 
   onKeyPressSendChatMessage(event){
@@ -38,15 +47,15 @@ class ChatBox extends Component{
     const { conversation } = this.props;
     const that = this;
       Meteor.call("messages.insert",body ,conversation, function(err){
-        if(!err){
-          that.refs.message.value = "";
+        if(!err){          
           that.refs.message.focus();         
         }
       });
+      that.refs.message.value = "";
   }
 
-    closeChatBox(){
-      this.props.closeChatBox(this.props.position);
+    closeChatBox(){      
+      this.props.closeChatBox(this.props.conversation._id);
     }
   
 

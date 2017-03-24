@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Meteor } from 'meteor/meteor';
 import FontAwesome from 'react-fontawesome';
 import moment from 'moment';
 
@@ -15,6 +16,7 @@ class MessageHeaderItem extends Component {
                         title={conversation.annonce.title} 
                         createdAt={lastMessage.createdAt}
                         category={conversation.annonce.category.value} 
+                        conversationId={conversation._id}
       />
       :
       <MessageItemInfo  icon={"envelope"} 
@@ -23,6 +25,7 @@ class MessageHeaderItem extends Component {
                         title={conversation.annonce.title} 
                         createdAt={lastMessage.createdAt}
                         category={conversation.annonce.category.value}
+                        conversationId={conversation._id}
       />
      
     return (
@@ -37,10 +40,15 @@ class MessageHeaderItem extends Component {
 
 
 class MessageItemInfo extends Component {
+
+  setVisible(){
+    Meteor.call('conversations.setVisible', true, this.props.conversationId);
+  }
+
   render(){
     const { icon, username, body, title, createdAt, category } = this.props;
     return(
-      <a href="#">        
+      <a href="#" onClick={this.setVisible.bind(this)}>        
          <FontAwesome name="user" /> <a href="#">{username}</a> :  <span className="badge">{title} : {category}</span><br/>
          <FontAwesome name={icon} /> <strong>{body}</strong><br/>
          <small className="time text-muted"><FontAwesome name="clock-o"/> {`${moment(createdAt).toNow(true)}`}</small>         

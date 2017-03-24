@@ -20,10 +20,20 @@ class App extends Component {
 
   constructor(props){
     super(props);
-    this.state = { isShowingModal: false , annoncesChat:[], showPopupForChatMessage: false, annonceMessage: {}};
+    this.state = { 
+      isShowingModal: false , 
+      annoncesChat:[], 
+      showPopupForChatMessage: false, 
+      annonceMessage: {},
+      connexionLoading: false,
+      connexionLaddaText: "Connexion",
+      inscriptionLoading: false,
+      inscriptionLaddaText: "Inscription"
+
+    };
   } 
 
-  componentWillReceiveProps(props){
+  componentWillReceiveProps(props){    
     this.setState({ annoncesChat: props.conversations });
   }
 
@@ -54,11 +64,28 @@ class App extends Component {
 
     const that = this;
     if(email && password){
+      that.setState({ connexionLoading: true, progress: 0.5, connexionLaddaText:"Connexion en cours" });
       Meteor.loginWithPassword(email, password, function(error){
         if(!error){
-          that.setState({ isShowingModal: false });
-          browserHistory.push('/');
+          that.setState({
+            isShowingModal: false, 
+            connexionLoading: false,
+            connexionLaddaText: "Connexion"
+          });
+          //browserHistory.push('/');
         }else {
+
+          let reason = "" ;
+          switch(error.reason){
+            case 'Incorrect password':
+              reason = "Le mot de passe est incorrect";
+            break;
+            case 'User not found':
+              reason = "Cet utilisateur n'existe pas";
+            break;
+          }
+                           
+          that.setState({ connexionLoading: false, connexionLaddaText:`${reason}` });
           console.log("Error", error);
         }
       });
@@ -70,8 +97,13 @@ class App extends Component {
     const that = this;
     const email = this.refs.embedded_signup_form.refs.signup_email.value;
     const password = this.refs.embedded_signup_form.refs.signup_password.value;
-    const repassword = this.refs.embedded_signup_form.refs.signup_repassword.value;
+    const repassword = this.refs.embedded_signup_form.refs.signup_repassword.value;    
     if(email && password && (password === repassword)){
+      that.setState({ 
+        inscriptionLoading: !this.state.inscriptionLoading, 
+        progress: 0.5, 
+        inscriptionLaddaText:"Inscription en cours"
+      });
         const profile = {
           status: true
         }
@@ -85,9 +117,25 @@ class App extends Component {
         Accounts.createUser(options, function(error){
             if(!error){
               console.log("User created with success");
-              that.setState({ isShowingModal: false });
-              browserHistory.push('/');
+              that.setState({ 
+                isShowingModal: false,
+                inscriptionLoading: !that.state.inscriptionLoading,
+                inscriptionLaddaText: "Inscription"
+              });
+              //browserHistory.push('/');
             }else{
+
+                let reason = "" ;
+                switch(error.reason){
+                  case "Email already exists.":
+                    reason = "Cet email est dèjà exist";
+                  break;                  
+                }
+
+              that.setState({ 
+                inscriptionLoading: false,                 
+                inscriptionLaddaText: `${reason}`
+              });
               console.log("Erreur ", error);
             }
         })
@@ -104,22 +152,22 @@ class App extends Component {
     Meteor.call("messages.insert_new",messageBody ,this.state.annonceMessage._id);
   }  
 
-  closeChatBox(i){
-    let newAnnonces = this.state.annoncesChat;
-    newAnnonces.splice(i, 1);
-    this.setState({ annoncesChat: newAnnonces });
-  }
+  closeChatBox(i){    
+       Meteor.call('conversations.setVisible', false, i, function(err, data){
+        if(err){
+          console.log(err);
+        }else{
+          console.log(data);
+        }
 
-  findAnnonceById(id){
-    return _.find(this.props.annonces, function(annonce) {
-      return id === annonce._id;
-    });
-  }
+       });
+    // let newAnnonces = this.state.annoncesChat;
+    // newAnnonces.splice(i, 1);
+    // this.setState({ annoncesChat: newAnnonces });
+  }  
 
   render(){
-    let ChatBoxs = this.state.annoncesChat.length > 0 ? this.state.annoncesChat.map((conversation, i) => {     
-      //let annonce =  this.props.annonces.length > 0 ?  this.findAnnonceById(annonceChat.annonceId) : this.findAnnonceById(annonceChat._id); 
-
+    let ChatBoxs = this.state.annoncesChat.length > 0 ? this.state.annoncesChat.map((conversation, i) => {        
           return (<ChatBox
                         key={conversation._id}
                         right={`${ i * 300 }px`}                        
@@ -131,12 +179,21 @@ class App extends Component {
         }) : "";
     const children = cloneElement(this.props.children, { 
         openChatBox: this.openChatBox.bind(this), 
-        showPopupForChatMessage: this.showPopupForChatMessage.bind(this)
+        showPopupForChatMessage: this.showPopupForChatMessage.bind(this),
+        onInscriptionClick: this.onInscriptionClick.bind(this)
+
     });
 
     return(
       <div>
-        <Header onInscriptionClick={ this.onInscriptionClick.bind(this) }/>
+        <Header 
+              onInscriptionClick={ this.onInscriptionClick.bind(this)  }
+              conversations={this.props.conversations}
+              messages={ this.props.messages }
+              countMessages={ this.props.countMessages }
+              loading={this.props.loading}
+
+        />
         { ChatBoxs }
         { children }
         {
@@ -145,15 +202,23 @@ class App extends Component {
             <ModalDialog onClose={this.handleClose.bind(this, "isShowingModal")}>
               <div className="row">
                 <div className="col-xs-6">
-                    <h1>Inscription</h1>
+                    <h1>Inscriptions</h1>
                     <SignupForm
-                    ref="embedded_signup_form" onInscriptionClick={ this.onSignupClick.bind(this) }
-                    onClose={ this.handleClose.bind(this, "isShowingModal") }
+                      ref="embedded_signup_form" 
+                      onInscriptionClick={ this.onSignupClick.bind(this) }
+                      onClose={ this.handleClose.bind(this, "isShowingModal") }
+                      inscriptionLaddaText={this.state.inscriptionLaddaText}
+                      inscriptionLoading={this.state.inscriptionLoading}
                     />
                 </div>
                 <div className="col-xs-6">
                     <h1>Connexion</h1>
-                    <LoginForm ref="embedded_login_form" onLoginClick={ this.onLoginClick.bind(this) }/>
+                    <LoginForm 
+                              ref="embedded_login_form" 
+                              onLoginClick={ this.onLoginClick.bind(this) }
+                              connexionLaddaText={this.state.connexionLaddaText}
+                              connexionLoading={this.state.connexionLoading}
+                    />
                 </div>
               </div>
             </ModalDialog>
@@ -180,12 +245,32 @@ class App extends Component {
 }
 
 export default createContainer(() => {
-  const subscription = Meteor.subscribe('conversations.last_message');
-  const conversations =  Conversations.find({}).fetch();  
-  const messages = Messages.find({}).fetch();  
+  const subscription = Meteor.subscribe('conversations.last_message');  
+  const conversations =  Conversations.find({
+    $or:[
+      {
+        $and:[
+          { "statusFrom.userId" : Meteor.userId() },
+          { "statusFrom.visible": true }
+        ]
+      },{
+        $and:[
+          { "statusTo.userId" : Meteor.userId() },
+          { "statusTo.visible": true }
+        ]
+      }
+    ]
+  }).fetch();  
+  const messages = Messages.find({
+    $or:[
+          { "from.userId": Meteor.userId() },
+          { "to.userId" : Meteor.userId() }
+        ]
+  }).fetch();  
   return {
     conversations: conversations,  
-    messages: messages,    
+    messages: messages,
+    countMessages: Messages.find({"to.userId" : Meteor.userId() }).count(),
     loading: !subscription.ready() 
   }
 }, App);

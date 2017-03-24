@@ -12,7 +12,7 @@ class ProfilePage extends Component {
     }
     return(
       <div className="container" style={{ marginTop:"90px" }}>
-        <div className="col-xs-5 col-sm-3 col-md-2" style={style}>
+        <div className="col-xs-5 col-sm-3 col-md-2 col" style={style}>
           <SideMenuProfile />
         </div>
         <div className="col-xs-12 col-xs-offset-5 col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3">

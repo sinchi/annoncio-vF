@@ -26,10 +26,9 @@ class Header extends Component {
   }
 
   onLogoutClick(event){
-    event.preventDefault();
-    Meteor.logout(function(){
-        browserHistory.push('/');
-    });
+    event.preventDefault();    
+    browserHistory.push('/');
+    Meteor.logout();
 
   }
 
@@ -152,7 +151,8 @@ class Header extends Component {
           <Link className="btn" to="/"><FontAwesome name="home" size="2x"/></Link>
         </li>
 
-        <MessagesHeader onLogoutClick={ this.onLogoutClick.bind(this) }/>
+        <MessagesHeader
+            onLogoutClick={ this.onLogoutClick.bind(this) } />
         <NotificationsHeader />
 
         <li className="btn-group">

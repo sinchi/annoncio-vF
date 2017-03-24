@@ -17,7 +17,7 @@ class MessagesHeader extends Component {
               conversation: conversation
             }
     }).sort((currentMessage, nextMessage) => {
-          if(currentMessage && nextMessage){
+          if(currentMessage.lastMessage && nextMessage.lastMessage){
             return nextMessage.lastMessage.createdAt - currentMessage.lastMessage.createdAt;
           }
             
