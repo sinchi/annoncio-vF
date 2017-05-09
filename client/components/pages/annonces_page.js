@@ -86,7 +86,8 @@ class AnnoncesPage extends Component {
                openChatBox={this.props.openChatBox}   
                showPopupForChatMessage={this.props.showPopupForChatMessage}           
             />
-          </div>          
+          </div>
+                  
         </div>
     )
   }

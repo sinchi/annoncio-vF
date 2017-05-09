@@ -19,6 +19,7 @@ class InlineForm extends Component {
 
     const email = this.refs.email.value;
     const password = this.refs.password.value;
+    
     const that = this;
     if(email && password){
       that.setState({ loading: !this.state.loading, progress: 0.5, laddaText:"Conenxion en cours" });

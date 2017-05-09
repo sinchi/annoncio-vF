@@ -85,7 +85,7 @@ export default createContainer((props) => {
     }
   }  
   const subscription = Meteor.subscribe('annonces', query, 5);
-  const comments = [
+ /* const comments = [
     {
       _id:1,
       image: "https://scontent-fra3-1.xx.fbcdn.net/v/t1.0-1/c1.0.160.160/p160x160/14691104_170628660057646_2916366093939806805_n.jpg?oh=96b010d6c9d0e7b3acfd57afffcc0bec&oe=58890332",
@@ -183,7 +183,7 @@ export default createContainer((props) => {
         },
       comments:comments
     }
-  ]
+  ]*/
 
   return {
     annonces: Annonces.find({}, { sort: { createdAt: -1 } }).fetch(),
